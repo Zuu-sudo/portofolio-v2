@@ -10,7 +10,7 @@ const translations = {
     about_label: "tentang saya", about_title: "Kenali Lebih Dekat",
     about_bio1: 'Saya <strong style="color:var(--text-main)">Ananta Naufal Imamul Hikam</strong>, seorang mahasiswa aktif di <strong style="color:var(--accent-primary)">Universitas Negeri Surabaya</strong> dengan keahlian utama sebagai <strong style="color:var(--accent-secondary)">AI Engineer</strong>.',
     about_bio2: "Ini adalah proyek pertama saya dalam membuat website portofolio. Saya bersemangat membangun solusi cerdas berbasis kecerdasan buatan yang dapat berdampak nyata bagi masyarakat.",
-    stat_projects: "Proyek", stat_passion: "Semangat",
+    stat_projects: "Proyek", stat_passion: "AI",
     skills_label: "tools", skills_title: "Tools",
     projects_label: "proyek", projects_title: "Portofolio",
     projects_subtitle: "Proyek pertama dalam perjalanan saya sebagai developer.",
@@ -24,7 +24,7 @@ const translations = {
     form_send: "Kirim Pesan", form_success: "Terima kasih! Pesan terkirim ✨",
     form_err_name: "Nama wajib diisi.", form_err_email: "Email tidak valid.",
     form_err_msg: "Pesan wajib diisi.",
-    footer_made: "Dibuat dengan", footer_by: "oleh",
+    footer_made: "Dibuat", footer_by: "oleh",
     roles: ["AI Engineer", "Mahasiswa UNESA", "Problem Solver"],
   },
   en: {
@@ -37,7 +37,7 @@ const translations = {
     about_label: "about me", about_title: "Get to Know Me",
     about_bio1: 'I am <strong style="color:var(--text-main)">Ananta Naufal Imamul Hikam</strong>, an active student at <strong style="color:var(--accent-primary)">Universitas Negeri Surabaya</strong> with a primary expertise as an <strong style="color:var(--accent-secondary)">AI Engineer</strong>.',
     about_bio2: "This is my first project building a portfolio website. I'm excited about building intelligent AI-powered solutions that create real impact for society.",
-    stat_projects: "Projects", stat_passion: "Passion",
+    stat_projects: "Projects", stat_passion: "AI",
     skills_label: "tools", skills_title: "Tools",
     projects_label: "projects", projects_title: "Portfolio",
     projects_subtitle: "My first project in the journey as a developer.",
@@ -237,7 +237,7 @@ const projectsData = [
     desc_id: 'Website portofolio pertama saya yang dibangun dengan teknologi modern sebagai langkah awal perjalanan saya di dunia programming.',
     desc_en: 'My first portfolio website built with modern technology as the first step of my programming journey.',
     tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS'],
-    demo: '#', github: '#'
+    demo: '#'
   },
 ];
 
@@ -258,7 +258,6 @@ function renderProjects() {
         </div>
         <div class="flex gap-3">
           <a href="${p.demo}" class="btn-primary text-xs px-4 py-2" aria-label="Demo ${p.title}">Demo ↗</a>
-          <a href="${p.github}" class="btn-outline text-xs px-4 py-2" aria-label="GitHub ${p.title}"><span>GitHub</span></a>
         </div>
       </div>
     </div>
@@ -272,8 +271,8 @@ const timelineData = [
     year: '2024',
     title_id: 'Mulai Kuliah',
     title_en: 'Started University',
-    desc_id: 'Bergabung dengan Universitas Negeri Surabaya, memulai perjalanan akademik di bidang teknologi.',
-    desc_en: 'Joined Universitas Negeri Surabaya, starting an academic journey in technology.',
+    desc_id: 'Bergabung dengan Universitas Negeri Surabaya.',
+    desc_en: 'Joined Universitas Negeri Surabaya.',
     iconSvg: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>'
   },
   {

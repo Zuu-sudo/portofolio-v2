@@ -60,16 +60,34 @@ body {
 /* ===== CUSTOM CURSOR ===== */
 #cursor {
   position: fixed;
-  width: 10px; height: 10px;
-  background: var(--accent-primary);
+  width: 32px; height: 32px;
+  border: 1.5px solid var(--accent-primary);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s, opacity 0.2s;
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease;
   mix-blend-mode: difference;
+  background: transparent;
 }
-#cursor.hover { width: 30px; height: 30px; opacity: 0.6; }
+#cursor::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 4px; height: 4px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s ease, height 0.25s ease, opacity 0.25s ease;
+}
+#cursor.hover {
+  width: 52px; height: 52px;
+  border-color: var(--accent-secondary);
+  background: rgba(124, 110, 248, 0.08);
+}
+#cursor.hover::after {
+  width: 0; height: 0; opacity: 0;
+}
 
 /* ===== NAVBAR ===== */
 #navbar {
@@ -321,13 +339,13 @@ body {
   flex-wrap: wrap;
   opacity: 0;
   animation: fadeSlideUp 0.6s ease forwards 1s;
-  margin-bottom: 4rem;
+  margin-bottom: 7rem;
 }
 
 /* Scroll indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: 1.5rem; left: 50%;
+  bottom: 3rem; left: 50%;
   transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center;
   gap: 0.5rem;

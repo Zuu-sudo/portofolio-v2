@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="id" data-theme="dark">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ananta Naufal Imamul Hikam — AI Engineer & Mahasiswa Universitas Negeri Surabaya. Portfolio proyek kecerdasan buatan." />
+  <meta name="description"
+    content="Ananta Naufal Imamul Hikam — AI Engineer & Mahasiswa Universitas Negeri Surabaya. Portfolio proyek kecerdasan buatan." />
   <meta property="og:title" content="Ananta Naufal — AI Engineer Portfolio" />
-  <meta property="og:description" content="Portfolio profesional Ananta Naufal Imamul Hikam, AI Engineer dari Universitas Negeri Surabaya." />
+  <meta property="og:description"
+    content="Portfolio profesional Ananta Naufal Imamul Hikam, AI Engineer dari Universitas Negeri Surabaya." />
   <title>Ananta Naufal — AI Engineer Portfolio</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap"
+    rel="stylesheet" />
 
   <!-- Tailwind CSS v3 CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -32,276 +37,314 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-<!-- Progress Bar -->
-<div id="progress-bar"></div>
+  <!-- Progress Bar -->
+  <div id="progress-bar"></div>
 
-<!-- Custom Cursor -->
-<div id="cursor"></div>
+  <!-- Custom Cursor -->
+  <div id="cursor"></div>
 
-<!-- ===== NAVBAR ===== -->
-<nav id="navbar" aria-label="Main navigation">
-  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
-    <a href="#hero" class="nav-logo" aria-label="Home">AN.</a>
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar" aria-label="Main navigation">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
+      <a href="#hero" class="nav-logo" aria-label="Home">AN.</a>
 
-    <!-- Desktop Nav -->
-    <div class="desktop-nav items-center gap-8">
-      <a href="#about" class="nav-link" data-i18n="nav_about">Tentang</a>
-      <a href="#skills" class="nav-link" data-i18n="nav_skills">Tools</a>
-      <a href="#projects" class="nav-link" data-i18n="nav_projects">Proyek</a>
-      <a href="#experience" class="nav-link" data-i18n="nav_experience">Pengalaman</a>
-      <a href="#contact" class="nav-link" data-i18n="nav_contact">Kontak</a>
-    </div>
-
-    <div class="flex items-center gap-3">
-      <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme" title="Toggle dark/light mode">
-        <span id="theme-icon">☀️</span>
-      </button>
-      <button id="lang-toggle" class="lang-btn" aria-label="Toggle language" title="Switch language">
-        <span id="lang-text">EN 🇺🇸</span>
-      </button>
-      <!-- Mobile hamburger -->
-      <button id="mobile-menu" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</nav>
-
-<!-- Mobile Nav Overlay -->
-<div id="nav-mobile" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-  <a href="#about" class="nav-link text-2xl" data-i18n="nav_about">Tentang</a>
-  <a href="#skills" class="nav-link text-2xl" data-i18n="nav_skills">Tools</a>
-  <a href="#projects" class="nav-link text-2xl" data-i18n="nav_projects">Proyek</a>
-  <a href="#experience" class="nav-link text-2xl" data-i18n="nav_experience">Pengalaman</a>
-  <a href="#contact" class="nav-link text-2xl" data-i18n="nav_contact">Kontak</a>
-</div>
-
-<!-- ===== HERO ===== -->
-<section id="hero" aria-label="Hero section">
-  <div class="hero-bg"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-  <div class="noise-overlay"></div>
-
-  <div class="hero-content max-w-4xl mx-auto px-6">
-    <p class="hero-greeting" data-i18n="hero_greeting">Halo, saya</p>
-
-    <h1 class="hero-name typewriter" id="hero-name" aria-label="Ananta Naufal Imamul Hikam"></h1>
-
-    <div class="hero-roles" aria-live="polite">
-      <div style="height:100%; overflow:hidden;">
-        <span class="role-text" data-i18n-roles></span>
-      </div>
-    </div>
-
-    <p class="hero-desc" data-i18n="hero_desc">
-      Mahasiswa dari Universitas Negeri Surabaya yang passionate dalam dunia kecerdasan buatan.
-    </p>
-
-    <div class="hero-cta">
-      <a href="#projects" class="btn-primary" data-i18n="hero_cta_projects">
-        <span>Lihat Proyek</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-      </a>
-      <a href="#contact" class="btn-outline" data-i18n="hero_cta_contact">
-        <span>Hubungi Saya</span>
-      </a>
-    </div>
-  </div>
-
-  <div class="scroll-indicator">
-    <span data-i18n="scroll_down">scroll</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
-
-<!-- ===== ABOUT ===== -->
-<section id="about" class="section">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="grid md:grid-cols-2 gap-16 items-center">
-
-      <!-- Photo -->
-      <div class="flex justify-center fade-up">
-        <div class="about-photo-wrap w-72 md:w-80">
-          <img
-            src="profile.jpg"
-            alt="Ananta Naufal Imamul Hikam"
-            class="about-photo aspect-square"
-            loading="lazy"
-            width="320" height="320"
-          />
-        </div>
+      <!-- Desktop Nav -->
+      <div class="desktop-nav items-center gap-8">
+        <a href="#about" class="nav-link" data-i18n="nav_about">Tentang</a>
+        <a href="#skills" class="nav-link" data-i18n="nav_skills">Tools</a>
+        <a href="#projects" class="nav-link" data-i18n="nav_projects">Proyek</a>
+        <a href="#experience" class="nav-link" data-i18n="nav_experience">Pengalaman</a>
+        <a href="#contact" class="nav-link" data-i18n="nav_contact">Kontak</a>
       </div>
 
-      <!-- Text -->
-      <div class="fade-up" style="transition-delay: 0.15s;">
-        <span class="section-label" data-i18n="about_label">// tentang saya</span>
-        <h2 class="section-title mb-6">
-          <span class="title-inner" data-i18n="about_title">Kenali Lebih Dekat</span>
-        </h2>
-        <p class="text-[var(--text-muted)] mb-4 leading-loose" data-i18n="about_bio1">
-          Saya <strong class="text-[var(--text-main)]">Ananta Naufal Imamul Hikam</strong>, seorang mahasiswa aktif di <strong class="text-[var(--accent-primary)]">Universitas Negeri Surabaya</strong> dengan keahlian utama sebagai <strong class="text-[var(--accent-secondary)]">AI Engineer</strong>.
-        </p>
-        <p class="text-[var(--text-muted)] mb-8 leading-loose" data-i18n="about_bio2">
-          Ini adalah proyek pertama saya dalam membuat website portofolio. Saya bersemangat membangun solusi cerdas berbasis kecerdasan buatan yang dapat berdampak nyata bagi masyarakat.
-        </p>
-
-        <!-- Stats (removed Universitas) -->
-        <div class="grid grid-cols-2 gap-6 mb-8">
-          <div class="text-center">
-            <div class="stat-counter" data-target="1" data-suffix="+">0</div>
-            <p class="text-xs text-[var(--text-muted)] font-mono mt-1" data-i18n="stat_projects">Proyek</p>
-          </div>
-          <div class="text-center">
-            <div class="stat-counter" data-target="100" data-suffix="%">0</div>
-            <p class="text-xs text-[var(--text-muted)] font-mono mt-1" data-i18n="stat_passion">Semangat</p>
-          </div>
-        </div>
-
-        <!-- Contact info with SVG icons -->
-        <div class="flex flex-col gap-3">
-          <a href="mailto:anantanaufal25@gmail.com" class="flex items-center gap-3 text-[var(--text-muted)] hover:text-[var(--accent-primary)] transition-colors text-sm" aria-label="Email Ananta">
-            <svg class="about-contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
-            anantanaufal25@gmail.com
-          </a>
-          <a href="https://www.instagram.com/mizu.mizuu_" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-[var(--text-muted)] hover:text-[var(--accent-primary)] transition-colors text-sm" aria-label="Instagram Ananta">
-            <svg class="about-contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            @mizu.mizuu_
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== TOOLS ===== -->
-<section id="skills" class="section" style="background: var(--bg-card);">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16 fade-up">
-      <span class="section-label" data-i18n="skills_label">// tools</span>
-      <h2 class="section-title justify-center">
-        <span class="title-inner" data-i18n="skills_title">Tools</span>
-      </h2>
-    </div>
-
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" id="skills-tools-grid"></div>
-  </div>
-</section>
-
-<!-- ===== PROJECTS ===== -->
-<section id="projects" class="section">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16 fade-up">
-      <span class="section-label" data-i18n="projects_label">// proyek</span>
-      <h2 class="section-title justify-center">
-        <span class="title-inner" data-i18n="projects_title">Portofolio</span>
-      </h2>
-      <p class="text-[var(--text-muted)] mt-4 max-w-xl mx-auto" data-i18n="projects_subtitle">Proyek pertama dalam perjalanan saya sebagai developer.</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid"></div>
-  </div>
-</section>
-
-<!-- ===== EXPERIENCE / TIMELINE ===== -->
-<section id="experience" class="section" style="background: var(--bg-card);">
-  <div class="max-w-4xl mx-auto px-6">
-    <div class="text-center mb-16 fade-up">
-      <span class="section-label" data-i18n="exp_label">// pengalaman</span>
-      <h2 class="section-title justify-center">
-        <span class="title-inner" data-i18n="exp_title">Perjalanan Saya</span>
-      </h2>
-    </div>
-
-    <div class="relative" id="timeline">
-      <div class="timeline-line hidden md:block">
-        <div class="timeline-line-fill" id="timeline-fill"></div>
-      </div>
-
-      <!-- Timeline items will be injected by JS -->
-      <div id="timeline-items" class="flex flex-col gap-12"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CONTACT ===== -->
-<section id="contact" class="section">
-  <div class="max-w-4xl mx-auto px-6">
-    <div class="text-center mb-16 fade-up">
-      <span class="section-label" data-i18n="contact_label">// kontak</span>
-      <h2 class="section-title justify-center">
-        <span class="title-inner" data-i18n="contact_title">Hubungi Saya</span>
-      </h2>
-      <p class="text-[var(--text-muted)] mt-4 max-w-lg mx-auto" data-i18n="contact_subtitle">
-        Ada pertanyaan, kolaborasi, atau sekadar ingin menyapa? Saya selalu terbuka!
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-12 items-start">
-      <!-- Contact Info (no university, SVG icons) -->
-      <div class="fade-up flex flex-col gap-6">
-        <a href="mailto:anantanaufal25@gmail.com" class="flex items-center gap-4 p-5 rounded-xl bg-[var(--bg-card)] border border-[var(--border)] hover:border-[var(--accent-primary)] hover:shadow-lg transition-all group" aria-label="Send email">
-          <div class="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--bg-elevated)] group-hover:scale-110 transition-transform">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
-          </div>
-          <div>
-            <p class="font-mono text-xs text-[var(--text-muted)] mb-1" data-i18n="contact_email_label">Email</p>
-            <p class="text-[var(--text-main)] font-medium text-sm">anantanaufal25@gmail.com</p>
-          </div>
-        </a>
-        <a href="https://www.instagram.com/mizu.mizuu_" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-5 rounded-xl bg-[var(--bg-card)] border border-[var(--border)] hover:border-[var(--accent-primary)] hover:shadow-lg transition-all group" aria-label="Instagram profile">
-          <div class="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--bg-elevated)] group-hover:scale-110 transition-transform">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </div>
-          <div>
-            <p class="font-mono text-xs text-[var(--text-muted)] mb-1">Instagram</p>
-            <p class="text-[var(--text-main)] font-medium text-sm">@mizu.mizuu_</p>
-          </div>
-        </a>
-      </div>
-
-      <!-- Contact Form -->
-      <form id="contact-form" class="fade-up flex flex-col gap-5" style="transition-delay:0.15s;" novalidate aria-label="Contact form">
-        <div>
-          <label for="contact-name" class="contact-label" data-i18n="form_name">Nama</label>
-          <input type="text" id="contact-name" name="name" class="contact-input" data-i18n-placeholder="form_name_ph" placeholder="Nama kamu" required autocomplete="name" />
-        </div>
-        <div>
-          <label for="contact-email" class="contact-label" data-i18n="form_email">Email</label>
-          <input type="email" id="contact-email" name="email" class="contact-input" data-i18n-placeholder="form_email_ph" placeholder="email@contoh.com" required autocomplete="email" />
-        </div>
-        <div>
-          <label for="contact-msg" class="contact-label" data-i18n="form_message">Pesan</label>
-          <textarea id="contact-msg" name="message" rows="5" class="contact-input resize-none" data-i18n-placeholder="form_msg_ph" placeholder="Tulis pesanmu di sini..." required></textarea>
-        </div>
-        <div id="form-error" class="text-red-400 text-sm hidden" role="alert"></div>
-        <div id="form-success" class="text-green-400 text-sm hidden" role="status" data-i18n="form_success">Terima kasih! Pesan terkirim ✨</div>
-        <button type="submit" id="form-submit" class="btn-primary justify-center">
-          <span data-i18n="form_send">Kirim Pesan</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+      <div class="flex items-center gap-3">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme" title="Toggle dark/light mode">
+          <span id="theme-icon">☀️</span>
         </button>
-      </form>
+        <button id="lang-toggle" class="lang-btn" aria-label="Toggle language" title="Switch language">
+          <span id="lang-text">EN 🇺🇸</span>
+        </button>
+        <!-- Mobile hamburger -->
+        <button id="mobile-menu" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<!-- ===== FOOTER ===== -->
-<footer id="footer" role="contentinfo">
-  <div class="max-w-6xl mx-auto px-6">
-    <a href="#hero" class="back-to-top" aria-label="Back to top">↑</a>
-    <p class="text-[var(--text-muted)] text-sm font-mono">
-      <span data-i18n="footer_made">Dibuat dengan</span>
-      <span class="text-[var(--accent-primary)]"> ♥ </span>
-      <span data-i18n="footer_by">oleh</span>
-      <span class="text-[var(--text-main)]"> Ananta Naufal</span>
-    </p>
-    <p class="text-[var(--text-muted)] text-xs mt-2">© 2026 Ananta Naufal Imamul Hikam</p>
+  <!-- Mobile Nav Overlay -->
+  <div id="nav-mobile" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <a href="#about" class="nav-link text-2xl" data-i18n="nav_about">Tentang</a>
+    <a href="#skills" class="nav-link text-2xl" data-i18n="nav_skills">Tools</a>
+    <a href="#projects" class="nav-link text-2xl" data-i18n="nav_projects">Proyek</a>
+    <a href="#experience" class="nav-link text-2xl" data-i18n="nav_experience">Pengalaman</a>
+    <a href="#contact" class="nav-link text-2xl" data-i18n="nav_contact">Kontak</a>
   </div>
-</footer>
 
-<script src="main.js"></script>
+  <!-- ===== HERO ===== -->
+  <section id="hero" aria-label="Hero section">
+    <div class="hero-bg"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="noise-overlay"></div>
+
+    <div class="hero-content max-w-4xl mx-auto px-6">
+      <p class="hero-greeting" data-i18n="hero_greeting">Halo, saya</p>
+
+      <h1 class="hero-name typewriter" id="hero-name" aria-label="Ananta Naufal Imamul Hikam"></h1>
+
+      <div class="hero-roles" aria-live="polite">
+        <div style="height:100%; overflow:hidden;">
+          <span class="role-text" data-i18n-roles></span>
+        </div>
+      </div>
+
+      <p class="hero-desc" data-i18n="hero_desc">
+        Mahasiswa dari Universitas Negeri Surabaya yang passionate dalam dunia kecerdasan buatan.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary" data-i18n="hero_cta_projects">
+          <span>Lihat Proyek</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7V17" />
+          </svg>
+        </a>
+        <a href="#contact" class="btn-outline" data-i18n="hero_cta_contact">
+          <span>Hubungi Saya</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span data-i18n="scroll_down">scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+
+        <!-- Photo -->
+        <div class="flex justify-center fade-up">
+          <div class="about-photo-wrap w-72 md:w-80">
+            <img src="profile.jpg" alt="Ananta Naufal Imamul Hikam" class="about-photo aspect-square" loading="lazy"
+              width="320" height="320" />
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="fade-up" style="transition-delay: 0.15s;">
+          <span class="section-label" data-i18n="about_label">// tentang saya</span>
+          <h2 class="section-title mb-6">
+            <span class="title-inner" data-i18n="about_title">Kenali Lebih Dekat</span>
+          </h2>
+          <p class="text-[var(--text-muted)] mb-4 leading-loose" data-i18n="about_bio1">
+            Saya <strong class="text-[var(--text-main)]">Ananta Naufal Imamul Hikam</strong>, seorang mahasiswa aktif di
+            <strong class="text-[var(--accent-primary)]">Universitas Negeri Surabaya</strong> dengan keahlian utama
+            sebagai <strong class="text-[var(--accent-secondary)]">AI Engineer</strong>.
+          </p>
+          <p class="text-[var(--text-muted)] mb-8 leading-loose" data-i18n="about_bio2">
+            Ini adalah proyek pertama saya dalam membuat website portofolio. Saya bersemangat membangun solusi cerdas
+            berbasis kecerdasan buatan yang dapat berdampak nyata bagi masyarakat.
+          </p>
+
+          <!-- Stats (removed Universitas) -->
+          <div class="grid grid-cols-2 gap-6 mb-8">
+            <div class="text-center">
+              <div class="stat-counter" data-target="1" data-suffix="+">0</div>
+              <p class="text-xs text-[var(--text-muted)] font-mono mt-1" data-i18n="stat_projects">Proyek</p>
+            </div>
+            <div class="text-center">
+              <div class="stat-counter" data-target="100" data-suffix="%">0</div>
+              <p class="text-xs text-[var(--text-muted)] font-mono mt-1" data-i18n="stat_passion">Semangat</p>
+            </div>
+          </div>
+
+          <!-- Contact info with SVG icons -->
+          <div class="flex flex-col gap-3">
+            <a href="mailto:anantanaufal25@gmail.com"
+              class="flex items-center gap-3 text-[var(--text-muted)] hover:text-[var(--accent-primary)] transition-colors text-sm"
+              aria-label="Email Ananta">
+              <svg class="about-contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <polyline points="22,7 12,13 2,7" />
+              </svg>
+              anantanaufal25@gmail.com
+            </a>
+            <a href="https://www.instagram.com/mizu.mizuu_" target="_blank" rel="noopener noreferrer"
+              class="flex items-center gap-3 text-[var(--text-muted)] hover:text-[var(--accent-primary)] transition-colors text-sm"
+              aria-label="Instagram Ananta">
+              <svg class="about-contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+              @mizu.mizuu_
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TOOLS ===== -->
+  <section id="skills" class="section" style="background: var(--bg-card);">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 fade-up">
+        <span class="section-label" data-i18n="skills_label">// tools</span>
+        <h2 class="section-title justify-center">
+          <span class="title-inner" data-i18n="skills_title">Tools</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" id="skills-tools-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="section">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 fade-up">
+        <span class="section-label" data-i18n="projects_label">// proyek</span>
+        <h2 class="section-title justify-center">
+          <span class="title-inner" data-i18n="projects_title">Portofolio</span>
+        </h2>
+        <p class="text-[var(--text-muted)] mt-4 max-w-xl mx-auto" data-i18n="projects_subtitle">Proyek pertama dalam
+          perjalanan saya sebagai developer.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE / TIMELINE ===== -->
+  <section id="experience" class="section" style="background: var(--bg-card);">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-16 fade-up">
+        <span class="section-label" data-i18n="exp_label">// pengalaman</span>
+        <h2 class="section-title justify-center">
+          <span class="title-inner" data-i18n="exp_title">Perjalanan Saya</span>
+        </h2>
+      </div>
+
+      <div class="relative" id="timeline">
+        <div class="timeline-line hidden md:block">
+          <div class="timeline-line-fill" id="timeline-fill"></div>
+        </div>
+
+        <!-- Timeline items will be injected by JS -->
+        <div id="timeline-items" class="flex flex-col gap-12"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-16 fade-up">
+        <span class="section-label" data-i18n="contact_label">// kontak</span>
+        <h2 class="section-title justify-center">
+          <span class="title-inner" data-i18n="contact_title">Hubungi Saya</span>
+        </h2>
+        <p class="text-[var(--text-muted)] mt-4 max-w-lg mx-auto" data-i18n="contact_subtitle">
+          Ada pertanyaan, kolaborasi, atau sekadar ingin menyapa? Saya selalu terbuka!
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <!-- Contact Info (no university, SVG icons) -->
+        <div class="fade-up flex flex-col gap-6">
+          <a href="mailto:anantanaufal25@gmail.com"
+            class="flex items-center gap-4 p-5 rounded-xl bg-[var(--bg-card)] border border-[var(--border)] hover:border-[var(--accent-primary)] hover:shadow-lg transition-all group"
+            aria-label="Send email">
+            <div
+              class="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--bg-elevated)] group-hover:scale-110 transition-transform">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <polyline points="22,7 12,13 2,7" />
+              </svg>
+            </div>
+            <div>
+              <p class="font-mono text-xs text-[var(--text-muted)] mb-1" data-i18n="contact_email_label">Email</p>
+              <p class="text-[var(--text-main)] font-medium text-sm">anantanaufal25@gmail.com</p>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/mizu.mizuu_" target="_blank" rel="noopener noreferrer"
+            class="flex items-center gap-4 p-5 rounded-xl bg-[var(--bg-card)] border border-[var(--border)] hover:border-[var(--accent-primary)] hover:shadow-lg transition-all group"
+            aria-label="Instagram profile">
+            <div
+              class="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--bg-elevated)] group-hover:scale-110 transition-transform">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </div>
+            <div>
+              <p class="font-mono text-xs text-[var(--text-muted)] mb-1">Instagram</p>
+              <p class="text-[var(--text-main)] font-medium text-sm">@mizu.mizuu_</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Contact Form -->
+        <form id="contact-form" class="fade-up flex flex-col gap-5" style="transition-delay:0.15s;" novalidate
+          aria-label="Contact form">
+          <div>
+            <label for="contact-name" class="contact-label" data-i18n="form_name">Nama</label>
+            <input type="text" id="contact-name" name="name" class="contact-input" data-i18n-placeholder="form_name_ph"
+              placeholder="Nama kamu" required autocomplete="name" />
+          </div>
+          <div>
+            <label for="contact-email" class="contact-label" data-i18n="form_email">Email</label>
+            <input type="email" id="contact-email" name="email" class="contact-input"
+              data-i18n-placeholder="form_email_ph" placeholder="email@contoh.com" required autocomplete="email" />
+          </div>
+          <div>
+            <label for="contact-msg" class="contact-label" data-i18n="form_message">Pesan</label>
+            <textarea id="contact-msg" name="message" rows="5" class="contact-input resize-none"
+              data-i18n-placeholder="form_msg_ph" placeholder="Tulis pesanmu di sini..." required></textarea>
+          </div>
+          <div id="form-error" class="text-red-400 text-sm hidden" role="alert"></div>
+          <div id="form-success" class="text-green-400 text-sm hidden" role="status" data-i18n="form_success">Terima
+            kasih! Pesan terkirim ✨</div>
+          <button type="submit" id="form-submit" class="btn-primary justify-center">
+            <span data-i18n="form_send">Kirim Pesan</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer" role="contentinfo">
+    <div class="max-w-6xl mx-auto px-6">
+      <a href="#hero" class="back-to-top" aria-label="Back to top">↑</a>
+      <p class="text-[var(--text-muted)] text-sm font-mono">
+        <span data-i18n="footer_made">Dibuat</span>
+        <span class="text-[var(--accent-primary)]"></span>
+        <span data-i18n="footer_by">oleh</span>
+        <span class="text-[var(--text-main)]"> Ananta Naufal</span>
+      </p>
+      <p class="text-[var(--text-muted)] text-xs mt-2">© 2026 Ananta Naufal Imamul Hikam</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
+
 </html>
