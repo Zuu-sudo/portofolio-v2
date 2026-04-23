@@ -398,8 +398,10 @@ function animateCounters() {
   document.querySelectorAll('.stat-counter').forEach(el => obs.observe(el));
 }
 
-/* ===== CONTACT FORM ===== */
-document.getElementById('contact-form').addEventListener('submit', function (e) {
+/* ===== CONTACT FORM (Web3Forms) ===== */
+const WEB3FORMS_KEY = '3f207861-16bd-4a01-8c1a-48758b633747';
+
+document.getElementById('contact-form').addEventListener('submit', async function (e) {
   e.preventDefault();
   const t = translations[currentLang];
   const name = document.getElementById('contact-name').value.trim();
@@ -419,13 +421,34 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
   const btn = document.getElementById('form-submit');
   btn.disabled = true;
   btn.style.opacity = '0.6';
-  setTimeout(() => {
-    successEl.textContent = t.form_success;
-    successEl.classList.remove('hidden');
-    this.reset();
-    btn.disabled = false;
-    btn.style.opacity = '1';
-  }, 800);
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_KEY,
+        name: name,
+        email: email,
+        message: msg,
+        subject: `Portfolio Contact: ${name}`,
+      })
+    });
+    const data = await res.json();
+    if (data.success) {
+      successEl.textContent = t.form_success;
+      successEl.classList.remove('hidden');
+      this.reset();
+    } else {
+      errEl.textContent = 'Gagal mengirim pesan. Coba lagi.';
+      errEl.classList.remove('hidden');
+    }
+  } catch (err) {
+    errEl.textContent = 'Terjadi kesalahan jaringan. Coba lagi.';
+    errEl.classList.remove('hidden');
+  }
+  btn.disabled = false;
+  btn.style.opacity = '1';
 });
 
 /* ===== PARALLAX HERO ===== */
