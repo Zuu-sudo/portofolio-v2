@@ -339,7 +339,6 @@ body {
   flex-wrap: wrap;
   opacity: 0;
   animation: fadeSlideUp 0.6s ease forwards 1s;
-  margin-bottom: 7rem;
 }
 
 /* Scroll indicator */
