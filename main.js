@@ -399,8 +399,6 @@ function animateCounters() {
 }
 
 /* ===== CONTACT FORM (Web3Forms) ===== */
-const WEB3FORMS_KEY = '3f207861-16bd-4a01-8c1a-48758b633747';
-
 document.getElementById('contact-form').addEventListener('submit', async function (e) {
   e.preventDefault();
   const t = translations[currentLang];
@@ -409,6 +407,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   const msg = document.getElementById('contact-msg').value.trim();
   const errEl = document.getElementById('form-error');
   const successEl = document.getElementById('form-success');
+  const btn = document.getElementById('form-submit');
   errEl.classList.add('hidden');
   successEl.classList.add('hidden');
 
@@ -418,37 +417,38 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   }
   if (!msg) { errEl.textContent = t.form_err_msg; errEl.classList.remove('hidden'); return; }
 
-  const btn = document.getElementById('form-submit');
+  const originalText = btn.innerHTML;
+  btn.innerHTML = '<span>Sending...</span>';
   btn.disabled = true;
   btn.style.opacity = '0.6';
 
   try {
+    const formData = new FormData(this);
+    formData.append('access_key', '3f207861-16bd-4a01-8c1a-48758b633747');
+    formData.append('subject', 'Portfolio Contact: ' + name);
+
     const res = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        access_key: WEB3FORMS_KEY,
-        name: name,
-        email: email,
-        message: msg,
-        subject: `Portfolio Contact: ${name}`,
-      })
+      body: formData
     });
     const data = await res.json();
-    if (data.success) {
+
+    if (res.ok && data.success) {
       successEl.textContent = t.form_success;
       successEl.classList.remove('hidden');
       this.reset();
     } else {
-      errEl.textContent = 'Gagal mengirim pesan. Coba lagi.';
+      errEl.textContent = 'Error: ' + (data.message || 'Gagal mengirim pesan.');
       errEl.classList.remove('hidden');
     }
   } catch (err) {
     errEl.textContent = 'Terjadi kesalahan jaringan. Coba lagi.';
     errEl.classList.remove('hidden');
+  } finally {
+    btn.innerHTML = originalText;
+    btn.disabled = false;
+    btn.style.opacity = '1';
   }
-  btn.disabled = false;
-  btn.style.opacity = '1';
 });
 
 /* ===== PARALLAX HERO ===== */
