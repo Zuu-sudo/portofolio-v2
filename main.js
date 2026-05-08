@@ -1,486 +1,1345 @@
-/* ===== TRANSLATIONS ===== */
+const { useState, useEffect, useRef } = React;
+
 const translations = {
   id: {
-    nav_about: "Tentang", nav_skills: "Tools", nav_projects: "Proyek",
-    nav_experience: "Pengalaman", nav_contact: "Kontak",
-    hero_greeting: "Halo, saya",
-    hero_desc: "Mahasiswa dari Universitas Negeri Surabaya yang passionate dalam dunia kecerdasan buatan.",
-    hero_cta_projects: "Lihat Proyek", hero_cta_contact: "Hubungi Saya",
-    scroll_down: "scroll",
-    about_label: "tentang saya", about_title: "Kenali Lebih Dekat",
-    about_bio1: 'Saya <strong style="color:var(--text-main)">Ananta Naufal Imamul Hikam</strong>, seorang mahasiswa aktif di <strong style="color:var(--accent-primary)">Universitas Negeri Surabaya</strong> dengan keahlian utama sebagai <strong style="color:var(--accent-secondary)">AI Engineer</strong>.',
-    about_bio2: "Ini adalah proyek pertama saya dalam membuat website portofolio. Saya bersemangat membangun solusi cerdas berbasis kecerdasan buatan yang dapat berdampak nyata bagi masyarakat.",
-    stat_projects: "Proyek", stat_passion: "AI",
-    skills_label: "tools", skills_title: "Tools",
-    projects_label: "proyek", projects_title: "Portofolio",
-    projects_subtitle: "Proyek pertama dalam perjalanan saya sebagai developer.",
-    exp_label: "pengalaman", exp_title: "Perjalanan Saya",
-    contact_label: "kontak", contact_title: "Hubungi Saya",
-    contact_subtitle: "Ada pertanyaan, kolaborasi, atau sekadar ingin menyapa? Saya selalu terbuka!",
-    contact_email_label: "Email",
-    form_name: "Nama", form_email: "Email", form_message: "Pesan",
-    form_name_ph: "Nama kamu", form_email_ph: "email@contoh.com",
-    form_msg_ph: "Tulis pesanmu di sini...",
-    form_send: "Kirim Pesan", form_success: "Terima kasih! Pesan terkirim ✨",
-    form_err_name: "Nama wajib diisi.", form_err_email: "Email tidak valid.",
-    form_err_msg: "Pesan wajib diisi.",
-    footer_made: "Dibuat", footer_by: "oleh",
-    roles: ["AI Engineer", "Mahasiswa UNESA", "Problem Solver"],
+    brand: "Ananta.",
+    nav: {
+      about: "Tentang",
+      tools: "Tools",
+      projects: "Proyek",
+      experience: "Pengalaman",
+      contact: "Kontak",
+    },
+    hero: {
+      eyebrow: "PORTFOLIO // AI & FRONTEND CRAFT",
+      greeting: "Halo, saya",
+      title: "Ananta Naufal Imamul Hikam",
+      roles: ["AI Engineer", "Frontend Builder", "Mahasiswa UNESA", "Problem Solver"],
+      description:
+        "Saya membangun pengalaman digital yang terasa presisi, cepat, dan hidup — dari antarmuka modern sampai eksperimen AI yang fungsional.",
+      primaryCta: "Lihat Proyek",
+      secondaryCta: "Hubungi Saya",
+      socialLabel: "Temukan saya di",
+      availability: "Terbuka untuk kolaborasi, freelance, dan project build.",
+      stats: [
+        { value: "02", label: "Proyek unggulan" },
+        { value: "08", label: "Tools utama" },
+        { value: "24/7", label: "Rasa ingin tahu" },
+      ],
+    },
+    about: {
+      label: "tentang saya",
+      title: "Mendesain struktur. Membangun sistem.",
+      lead:
+        "Saya mahasiswa Universitas Negeri Surabaya yang suka menggabungkan logika, visual, dan eksperimen teknologi jadi produk yang terasa matang.",
+      body:
+        "Fokus saya ada di AI, web interface, dan workflow development yang rapi. Saya tertarik pada detail kecil: ritme layout, performa interaksi, dan cara pengalaman digital meninggalkan kesan kuat.",
+      cardTitle: "Profil singkat",
+      location: "Sidoarjo, Indonesia",
+      study: "Universitas Negeri Surabaya",
+      focus: "AI Engineer / Frontend Craft",
+      years: "Perjalanan aktif 2024 — sekarang",
+      bioPoints: [
+        "Suka mengubah ide mentah jadi interface yang lebih jelas dan usable.",
+        "Nyaman bekerja dengan React ecosystem, modern CSS, dan tooling frontend.",
+        "Terus eksplorasi Python dan Lua untuk otomasi, eksperimen, dan integrasi.",
+      ],
+      stats: [
+        { value: "2", label: "Project showcase" },
+        { value: "8", label: "Tech stack inti" },
+        { value: "100%", label: "Build dengan rasa penasaran" },
+      ],
+      contactLabel: "Kontak cepat",
+      email: "Email",
+      instagram: "Instagram",
+    },
+    tools: {
+      label: "tools",
+      title: "Stack yang paling sering saya pakai",
+      description:
+        "Frontend modern, tooling development, dan bahasa yang saya gunakan untuk membangun produk, eksperimen, serta workflow kerja sehari-hari.",
+      proficiency: "Proficiency",
+    },
+    projects: {
+      label: "proyek",
+      title: "Dua proyek. Dua arah karakter.",
+      description:
+        "Pilihan karya yang menonjolkan kombinasi visual, struktur, dan fokus implementasi nyata.",
+      demo: "Demo",
+      featured: "Featured Project",
+      items: [
+        {
+          title: "Kureksari Blacksmith",
+          summary:
+            "Website company profile untuk pande besi tradisional dengan presentasi modern, kuat, dan dipercaya untuk kebutuhan industri serta pesanan custom.",
+          details:
+            "Fokus utama proyek ini ada pada penyajian brand yang tegas, navigasi jelas, dan tampilan layanan yang terasa profesional tanpa kehilangan karakter lokal.",
+          tags: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
+          demo: "https://kureksari-blacksmith.vercel.app/",
+          accent: "forge",
+        },
+        {
+          title: "Portfolio V2",
+          summary:
+            "Portofolio generasi kedua dengan dark theme, animasi bertahap, bilingual support, dan pengalaman yang lebih refined dari versi sebelumnya.",
+          details:
+            "Project ini jadi ruang eksperimen untuk visual rhythm, komposisi kontras, serta kualitas interaksi dari hero sampai contact section.",
+          tags: ["JavaScript", "React", "Tailwind CSS"],
+          demo: "#contact",
+          accent: "ember",
+        },
+      ],
+    },
+    experience: {
+      label: "pengalaman",
+      title: "Timeline perjalanan",
+      description:
+        "Langkah-langkah yang membentuk fokus saya di dunia coding, AI, dan interface building.",
+      items: [
+        {
+          year: "2024",
+          title: "Memulai perjalanan kampus",
+          description:
+            "Masuk Universitas Negeri Surabaya dan mulai membentuk fondasi belajar yang lebih serius.",
+        },
+        {
+          year: "2025",
+          title: "Masuk lebih dalam ke coding",
+          description:
+            "Mulai aktif mengeksplorasi JavaScript, Python, Lua, dan pola membangun website modern.",
+        },
+        {
+          year: "2026",
+          title: "Membangun project dengan identitas",
+          description:
+            "Mulai fokus pada portofolio, kualitas visual, dan implementasi yang terasa lebih matang dan personal.",
+        },
+      ],
+    },
+    contact: {
+      label: "kontak",
+      title: "Mari bangun sesuatu yang solid.",
+      description:
+        "Kalau kamu punya ide, project, atau peluang kolaborasi, kirim pesan. Saya akan baca dan balas secepat mungkin.",
+      cards: {
+        email: "Email",
+        instagram: "Instagram",
+        github: "GitHub",
+      },
+      form: {
+        title: "Kirim pesan",
+        name: "Nama",
+        email: "Email",
+        message: "Pesan",
+        namePlaceholder: "Nama kamu",
+        emailPlaceholder: "email@contoh.com",
+        messagePlaceholder: "Ceritakan project, ide, atau kebutuhanmu...",
+        submit: "Kirim Pesan",
+        sending: "Mengirim...",
+        success: "Terima kasih. Pesan berhasil dikirim.",
+        errorName: "Nama wajib diisi.",
+        errorEmail: "Email tidak valid.",
+        errorMessage: "Pesan wajib diisi.",
+        errorSubmit: "Gagal mengirim pesan. Coba lagi.",
+      },
+    },
+    footer: {
+      backToTop: "Kembali ke atas",
+      copyright: "Dibuat oleh Ananta Naufal Imamul Hikam.",
+    },
   },
   en: {
-    nav_about: "About", nav_skills: "Tools", nav_projects: "Projects",
-    nav_experience: "Experience", nav_contact: "Contact",
-    hero_greeting: "Hi, I'm",
-    hero_desc: "A student from Universitas Negeri Surabaya passionate about artificial intelligence.",
-    hero_cta_projects: "View Projects", hero_cta_contact: "Contact Me",
-    scroll_down: "scroll",
-    about_label: "about me", about_title: "Get to Know Me",
-    about_bio1: 'I am <strong style="color:var(--text-main)">Ananta Naufal Imamul Hikam</strong>, an active student at <strong style="color:var(--accent-primary)">Universitas Negeri Surabaya</strong> with a primary expertise as an <strong style="color:var(--accent-secondary)">AI Engineer</strong>.',
-    about_bio2: "This is my first project building a portfolio website. I'm excited about building intelligent AI-powered solutions that create real impact for society.",
-    stat_projects: "Projects", stat_passion: "AI",
-    skills_label: "tools", skills_title: "Tools",
-    projects_label: "projects", projects_title: "Portfolio",
-    projects_subtitle: "My first project in the journey as a developer.",
-    exp_label: "experience", exp_title: "My Journey",
-    contact_label: "contact", contact_title: "Get In Touch",
-    contact_subtitle: "Have a question, collaboration, or just want to say hi? I'm always open!",
-    contact_email_label: "Email",
-    form_name: "Name", form_email: "Email", form_message: "Message",
-    form_name_ph: "Your name", form_email_ph: "email@example.com",
-    form_msg_ph: "Write your message here...",
-    form_send: "Send Message", form_success: "Thank you! Message sent",
-    form_err_name: "Name is required.", form_err_email: "Invalid email.",
-    form_err_msg: "Message is required.",
-    footer_made: "Made with", footer_by: "by",
-    roles: ["AI Engineer", "UNESA Student", "Problem Solver"],
-  }
+    brand: "Ananta.",
+    nav: {
+      about: "About",
+      tools: "Tools",
+      projects: "Projects",
+      experience: "Experience",
+      contact: "Contact",
+    },
+    hero: {
+      eyebrow: "PORTFOLIO // AI & FRONTEND CRAFT",
+      greeting: "Hi, I'm",
+      title: "Ananta Naufal Imamul Hikam",
+      roles: ["AI Engineer", "Frontend Builder", "UNESA Student", "Problem Solver"],
+      description:
+        "I build digital experiences that feel precise, fast, and alive — from modern interfaces to functional AI experiments.",
+      primaryCta: "View Projects",
+      secondaryCta: "Contact Me",
+      socialLabel: "Find me on",
+      availability: "Open for collaboration, freelance work, and product builds.",
+      stats: [
+        { value: "02", label: "Featured projects" },
+        { value: "08", label: "Core tools" },
+        { value: "24/7", label: "Curiosity mode" },
+      ],
+    },
+    about: {
+      label: "about me",
+      title: "Designing structure. Building systems.",
+      lead:
+        "I am a student at Universitas Negeri Surabaya who likes turning logic, visuals, and technology experiments into polished products.",
+      body:
+        "My focus sits across AI, web interfaces, and clean development workflows. I care about small details: layout rhythm, interaction performance, and how digital experiences leave a strong impression.",
+      cardTitle: "Quick profile",
+      location: "Sidoarjo, Indonesia",
+      study: "Universitas Negeri Surabaya",
+      focus: "AI Engineer / Frontend Craft",
+      years: "Active journey 2024 — present",
+      bioPoints: [
+        "I like turning raw ideas into clearer and more usable interfaces.",
+        "Comfortable with React ecosystem, modern CSS, and frontend tooling.",
+        "Continuously exploring Python and Lua for automation, experiments, and integrations.",
+      ],
+      stats: [
+        { value: "2", label: "Showcase projects" },
+        { value: "8", label: "Core technologies" },
+        { value: "100%", label: "Built with curiosity" },
+      ],
+      contactLabel: "Quick contact",
+      email: "Email",
+      instagram: "Instagram",
+    },
+    tools: {
+      label: "tools",
+      title: "Stack I reach for most",
+      description:
+        "Modern frontend, development tooling, and languages I use to build products, experiments, and day-to-day workflows.",
+      proficiency: "Proficiency",
+    },
+    projects: {
+      label: "projects",
+      title: "Two projects. Two distinct moods.",
+      description:
+        "Selected work showing how visual tone, structure, and real-world implementation can move together.",
+      demo: "Demo",
+      featured: "Featured Project",
+      items: [
+        {
+          title: "Kureksari Blacksmith",
+          summary:
+            "A company profile website for a traditional blacksmith business, presented with a strong modern feel for industrial services and custom orders.",
+          details:
+            "Main focus: strong brand presentation, clear navigation, and service storytelling that feels professional without losing local identity.",
+          tags: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
+          demo: "https://kureksari-blacksmith.vercel.app/",
+          accent: "forge",
+        },
+        {
+          title: "Portfolio V2",
+          summary:
+            "A second-generation portfolio with dark theme, staggered animation, bilingual support, and a more refined feel than previous iterations.",
+          details:
+            "This project became a playground for visual rhythm, contrast-heavy composition, and stronger interaction quality from hero to contact.",
+          tags: ["JavaScript", "React", "Tailwind CSS"],
+          demo: "#contact",
+          accent: "ember",
+        },
+      ],
+    },
+    experience: {
+      label: "experience",
+      title: "Journey timeline",
+      description:
+        "Milestones that shaped my focus on coding, AI, and interface building.",
+      items: [
+        {
+          year: "2024",
+          title: "Started university journey",
+          description:
+            "Joined Universitas Negeri Surabaya and began building a more serious learning foundation.",
+        },
+        {
+          year: "2025",
+          title: "Went deeper into coding",
+          description:
+            "Actively explored JavaScript, Python, Lua, and patterns for building modern websites.",
+        },
+        {
+          year: "2026",
+          title: "Built projects with identity",
+          description:
+            "Started focusing on portfolio work, visual quality, and implementation that feels more mature and personal.",
+        },
+      ],
+    },
+    contact: {
+      label: "contact",
+      title: "Let’s build something solid.",
+      description:
+        "If you have an idea, a project, or a collaboration opportunity, send a message. I’ll read it and reply as soon as I can.",
+      cards: {
+        email: "Email",
+        instagram: "Instagram",
+        github: "GitHub",
+      },
+      form: {
+        title: "Send message",
+        name: "Name",
+        email: "Email",
+        message: "Message",
+        namePlaceholder: "Your name",
+        emailPlaceholder: "email@example.com",
+        messagePlaceholder: "Tell me about your project, idea, or needs...",
+        submit: "Send Message",
+        sending: "Sending...",
+        success: "Thank you. Your message has been sent.",
+        errorName: "Name is required.",
+        errorEmail: "Email is not valid.",
+        errorMessage: "Message is required.",
+        errorSubmit: "Failed to send message. Try again.",
+      },
+    },
+    footer: {
+      backToTop: "Back to top",
+      copyright: "Built by Ananta Naufal Imamul Hikam.",
+    },
+  },
 };
 
-/* ===== STATE ===== */
-let currentLang = localStorage.getItem('lang') || (navigator.language.startsWith('id') ? 'id' : 'en');
-let currentTheme = localStorage.getItem('theme') || 'dark';
-let roleIndex = 0;
-let roleInterval;
-
-/* ===== THEME ===== */
-function applyTheme(theme) {
-  document.documentElement.setAttribute('data-theme', theme);
-  document.getElementById('theme-icon').textContent = theme === 'dark' ? '☀️' : '🌙';
-  localStorage.setItem('theme', theme);
-  currentTheme = theme;
-}
-document.getElementById('theme-toggle').addEventListener('click', () => {
-  applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
-});
-applyTheme(currentTheme);
-
-/* ===== LANGUAGE ===== */
-function setLanguage(lang) {
-  document.body.classList.add('lang-transition');
-  setTimeout(() => {
-    currentLang = lang;
-    localStorage.setItem('lang', lang);
-    document.documentElement.lang = lang;
-    const t = translations[lang];
-    // text elements
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (t[key] !== undefined) el.innerHTML = t[key];
-    });
-    // placeholders
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-      const key = el.getAttribute('data-i18n-placeholder');
-      if (t[key]) el.placeholder = t[key];
-    });
-    // lang button
-    document.getElementById('lang-text').textContent = lang === 'id' ? 'EN 🇺🇸' : 'ID 🇮🇩';
-    // re-render dynamic sections that use currentLang
-    renderProjects();
-    renderTimeline();
-    observeCards('.skill-card');
-    observeCards('.project-card');
-    observeCards('.timeline-card');
-    // restart role rotator
-    startRoles();
-    document.body.classList.remove('lang-transition');
-  }, 150);
-}
-document.getElementById('lang-toggle').addEventListener('click', () => {
-  setLanguage(currentLang === 'id' ? 'en' : 'id');
-});
-
-/* ===== ROLES ROTATOR ===== */
-function startRoles() {
-  if (roleInterval) clearInterval(roleInterval);
-  const roles = translations[currentLang].roles;
-  const el = document.querySelector('[data-i18n-roles]');
-  if (!el) return;
-  roleIndex = 0;
-  el.textContent = roles[roleIndex];
-  roleInterval = setInterval(() => {
-    roleIndex = (roleIndex + 1) % roles.length;
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(10px)';
-    setTimeout(() => {
-      el.textContent = roles[roleIndex];
-      el.style.opacity = '1';
-      el.style.transform = 'translateY(0)';
-    }, 300);
-  }, 3000);
-  el.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-}
-
-/* ===== TYPEWRITER ===== */
-function typewriter(el, text, speed = 70) {
-  el.textContent = '';
-  let i = 0;
-  const t = setInterval(() => {
-    el.textContent += text[i];
-    i++;
-    if (i >= text.length) clearInterval(t);
-  }, speed);
-}
-
-/* ===== NAVBAR SCROLL ===== */
-const navbar = document.getElementById('navbar');
-const progressBar = document.getElementById('progress-bar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
-  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-  progressBar.style.width = pct + '%';
-}, { passive: true });
-
-/* ===== CUSTOM CURSOR ===== */
-const cursor = document.getElementById('cursor');
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-});
-document.querySelectorAll('a, button, .skill-card, .project-card').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-});
-
-/* ===== MOBILE MENU ===== */
-const mobileBtn = document.getElementById('mobile-menu');
-const mobileNav = document.getElementById('nav-mobile');
-mobileBtn.addEventListener('click', () => {
-  const open = mobileBtn.classList.toggle('open');
-  mobileNav.classList.toggle('open', open);
-  mobileBtn.setAttribute('aria-expanded', open);
-  document.body.style.overflow = open ? 'hidden' : '';
-});
-mobileNav.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    mobileBtn.classList.remove('open');
-    mobileNav.classList.remove('open');
-    document.body.style.overflow = '';
-  });
-});
-
-/* ===== TOOLS DATA ===== */
 const toolsData = [
   {
-    name: 'Tailwind CSS',
-    pct: 70,
-    svg: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 6C9.33 6 7.67 7.33 7 10c1-1.33 2.17-1.83 3.5-1.5.76.19 1.3.74 1.9 1.35C13.33 10.8 14.44 12 17 12c2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.3-.74-1.9-1.35C15.67 7.2 14.56 6 12 6zM7 12c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.3.74 1.9 1.35C8.33 16.8 9.44 18 12 18c2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.3-.74-1.9-1.35C10.67 13.2 9.56 12 7 12z" fill="currentColor"/></svg>'
+    name: "Next.js",
+    level: 82,
+    iconClass: "devicon-nextjs-original",
+    accent: "from-white/80 to-zinc-500/70",
   },
   {
-    name: 'Lua',
-    pct: 75,
-    svg: '<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="17.5" cy="6.5" r="2.5"/><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/><circle cx="12" cy="12" r="4"/></svg>'
+    name: "React",
+    level: 88,
+    iconClass: "devicon-react-original",
+    accent: "from-cyan-300/80 to-sky-500/60",
   },
   {
-    name: 'Luau',
-    pct: 70,
-    svg: '<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="2"/><path d="M7 8l2 2-2 2"/></svg>'
+    name: "Python",
+    level: 84,
+    iconClass: "devicon-python-plain",
+    accent: "from-yellow-300/80 to-blue-500/60",
   },
   {
-    name: 'Python',
-    pct: 80,
-    svg: '<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.92 2c-.96.01-1.88.1-2.68.28-2.35.52-2.78 1.62-2.78 3.64v2.67h5.56v.89H5.59c-1.62 0-3.03.97-3.47 2.82-.51 2.12-.53 3.45 0 5.66.39 1.65 1.33 2.82 2.95 2.82h1.91v-2.54c0-1.84 1.59-3.46 3.47-3.46h5.55c1.55 0 2.78-1.27 2.78-2.83V5.92c0-1.51-1.27-2.64-2.78-2.92A16.8 16.8 0 0 0 11.92 2zM8.89 3.97c.58 0 1.05.48 1.05 1.07 0 .58-.47 1.06-1.05 1.06-.58 0-1.06-.48-1.06-1.06 0-.59.48-1.07 1.06-1.07zm6.22 5.62v2.6c0 1.92-1.63 3.51-3.47 3.51H6.09c-1.52 0-2.78 1.3-2.78 2.83v5.31c0 1.51 1.31 2.4 2.78 2.83 1.76.52 3.45.61 5.55 0 1.4-.41 2.78-1.23 2.78-2.83v-2.12h-5.55v-.71h8.33c1.62 0 2.22-1.13 2.78-2.82.58-1.74.55-3.41 0-5.66-.4-1.61-1.16-2.82-2.78-2.82h-2.08v-.02zm-3.05 10.39c.58 0 1.06.47 1.06 1.06 0 .59-.48 1.07-1.06 1.07-.59 0-1.05-.48-1.05-1.07 0-.59.46-1.06 1.05-1.06z"/></svg>'
+    name: "Lua",
+    level: 80,
+    iconClass: "devicon-lua-plain",
+    accent: "from-blue-300/80 to-indigo-500/60",
   },
   {
-    name: 'JavaScript',
-    pct: 65,
-    svg: '<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3 3h18v18H3V3zm4.73 15.04c.4.85 1.16 1.46 2.26 1.46 1.34 0 2.2-.7 2.2-2.42v-6.57h-1.7v6.53c0 .8-.33 1.01-.85 1.01-.52 0-.74-.35-.98-.77l-1.47.76h.54zm5.33-.27c.52.98 1.51 1.73 3.09 1.73 1.63 0 2.83-.85 2.83-2.27 0-1.36-.78-1.95-2.16-2.49l-.42-.18c-.7-.3-1-.5-1-.98 0-.39.3-.69.77-.69.46 0 .76.2 1.04.69l1.41-.9c-.59-1.04-1.42-1.44-2.45-1.44-1.54 0-2.52.98-2.52 2.26 0 1.33.78 1.96 1.95 2.42l.42.18c.73.32 1.17.51 1.17 1.05 0 .45-.42.78-1.07.78-.78 0-1.22-.4-1.56-1.04l-1.5.88z"/></svg>'
+    name: "TypeScript",
+    level: 85,
+    iconClass: "devicon-typescript-plain",
+    accent: "from-sky-300/80 to-blue-600/60",
   },
   {
-    name: 'HTML',
-    pct: 75,
-    svg: '<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4.136 3.012h15.729l-1.431 16.15L12.012 21l-6.396-1.838L4.136 3.012zM17.09 6.27H6.91l.255 2.86h9.67l-.44 4.96-4.39 1.22-4.39-1.22-.3-3.33h2.79l.15 1.7 1.75.47 1.75-.47.18-2.05H7.39l-.44-4.97h10.14l-.26-2.86h.26z"/></svg>'
+    name: "Tailwind CSS",
+    level: 90,
+    iconClass: "devicon-tailwindcss-original",
+    accent: "from-cyan-200/80 to-teal-500/60",
   },
   {
-    name: 'GitHub',
-    pct: 70,
-    svg: '<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>'
-  }
-];
-
-function renderTools() {
-  const container = document.getElementById('skills-tools-grid');
-  if (!container) return;
-  container.innerHTML = toolsData.map((s, i) => `
-    <div class="skill-card" style="transition-delay:${i * 80}ms">
-      <span class="skill-icon tool-svg-icon">${s.svg}</span>
-      <p class="font-medium text-sm text-[var(--text-main)] mb-1">${s.name}</p>
-      <div class="skill-bar-bg"><div class="skill-bar" data-pct="${s.pct}"></div></div>
-    </div>
-  `).join('');
-}
-renderTools();
-
-/* ===== PROJECTS DATA ===== */
-const projectsData = [
+    name: "Git",
+    level: 78,
+    iconClass: "devicon-git-plain",
+    accent: "from-orange-200/80 to-orange-600/70",
+  },
   {
-    title: 'Portfolio Website',
-    desc_id: 'Website portofolio pertama saya yang dibangun dengan teknologi modern sebagai langkah awal perjalanan saya di dunia programming.',
-    desc_en: 'My first portfolio website built with modern technology as the first step of my programming journey.',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS'],
-    demo: '#'
+    name: "JavaScript",
+    level: 86,
+    iconClass: "devicon-javascript-plain",
+    accent: "from-yellow-200/80 to-amber-500/70",
   },
 ];
 
-function renderProjects() {
-  const grid = document.getElementById('projects-grid');
-  if (!grid) return;
-  const t = translations[currentLang];
-  grid.innerHTML = projectsData.map((p, i) => `
-    <div class="project-card" style="transition-delay:${i * 80}ms">
-      <div class="project-thumb">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
-      </div>
-      <div class="p-6">
-        <h3 class="font-display font-bold text-lg text-[var(--text-main)] mb-2">${p.title}</h3>
-        <p class="text-sm text-[var(--text-muted)] mb-4 leading-relaxed">${currentLang === 'id' ? p.desc_id : p.desc_en}</p>
-        <div class="flex flex-wrap gap-2 mb-5">
-          ${p.tags.map(tag => `<span class="tech-tag">${tag}</span>`).join('')}
-        </div>
-        <div class="flex gap-3">
-          <a href="${p.demo}" class="btn-primary text-xs px-4 py-2" aria-label="Demo ${p.title}">Demo ↗</a>
-        </div>
-      </div>
-    </div>
-  `).join('');
-  observeCards('.project-card');
-}
+const contactLinks = {
+  email: "mailto:anantanaufalwork@gmail.com",
+  instagram: "https://instagram.com/zuu.sudo",
+  github: "https://github.com/Zuu-sudo",
+};
 
-/* ===== TIMELINE DATA ===== */
-const timelineData = [
+const socialLinks = [
   {
-    year: '2024',
-    title_id: 'Mulai Kuliah',
-    title_en: 'Started University',
-    desc_id: 'Bergabung dengan Universitas Negeri Surabaya.',
-    desc_en: 'Joined Universitas Negeri Surabaya.',
-    iconSvg: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>'
+    label: "Instagram",
+    href: contactLinks.instagram,
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.4" cy="6.6" r="0.8" fill="currentColor" stroke="none" />
+      </svg>
+    ),
   },
   {
-    year: '2025',
-    title_id: 'Mulai Tertarik Ngoding',
-    title_en: 'Started Interest in Coding',
-    desc_id: 'Mulai tertarik dan belajar programming, mengeksplorasi berbagai bahasa pemrograman dan teknologi web.',
-    desc_en: 'Started getting interested in programming, exploring various programming languages and web technologies.',
-    iconSvg: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>'
+    label: "Email",
+    href: contactLinks.email,
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <path d="M4 6h16v12H4z" />
+        <path d="m4 7 8 6 8-6" />
+      </svg>
+    ),
   },
   {
-    year: '2026',
-    title_id: 'Mendalami Ngoding & Membuat Web Porto',
-    title_en: 'Deep Diving into Code & Building Portfolio',
-    desc_id: 'Mulai mendalami dunia programming secara serius dan membuat website portofolio sebagai proyek pertama.',
-    desc_en: 'Started deep diving into programming seriously and building a portfolio website as the first project.',
-    iconSvg: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>'
+    label: "GitHub",
+    href: contactLinks.github,
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
+        <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
+      </svg>
+    ),
   },
 ];
 
+function useReveal() {
+  const ref = useRef(null);
 
-function renderTimeline() {
-  const container = document.getElementById('timeline-items');
-  if (!container) return;
-  container.innerHTML = timelineData.map((item, i) => {
-    const isRight = i % 2 === 1;
-    return `
-      <div class="md:flex items-center gap-8 ${isRight ? 'md:flex-row-reverse' : ''}">
-        <div class="timeline-card ${isRight ? 'right' : ''} flex-1" style="transition-delay:${i * 150}ms">
-          <div class="flex items-center gap-3 mb-2">
-            <span class="timeline-svg-icon text-[var(--accent-primary)]">${item.iconSvg}</span>
-            <span class="font-mono text-xs text-[var(--accent-secondary)]">${item.year}</span>
-          </div>
-          <h3 class="font-display font-bold text-[var(--text-main)] mb-2">${currentLang === 'id' ? item.title_id : item.title_en}</h3>
-          <p class="text-sm text-[var(--text-muted)] leading-relaxed">${currentLang === 'id' ? item.desc_id : item.desc_en}</p>
-        </div>
-        <div class="timeline-dot hidden md:block flex-shrink-0"></div>
-        <div class="flex-1 hidden md:block"></div>
-      </div>
-    `;
-  }).join('');
-  observeCards('.timeline-card');
-}
+  useEffect(() => {
+    if (!ref.current) return undefined;
 
-/* ===== INTERSECTION OBSERVER ===== */
-function observeCards(selector) {
-  const cards = document.querySelectorAll(selector);
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        // animate skill bars
-        entry.target.querySelectorAll('.skill-bar').forEach(bar => {
-          bar.style.width = bar.dataset.pct + '%';
+    const nodes = ref.current.querySelectorAll("[data-reveal]");
+    const timers = [];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const delay = Number(entry.target.dataset.delay || 0);
+          const timer = setTimeout(() => {
+            entry.target.classList.add("is-visible");
+          }, delay);
+          timers.push(timer);
+          observer.unobserve(entry.target);
         });
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  cards.forEach(c => obs.observe(c));
+      },
+      { threshold: 0.14, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    nodes.forEach((node) => observer.observe(node));
+
+    return () => {
+      observer.disconnect();
+      timers.forEach(clearTimeout);
+    };
+  }, []);
+
+  return ref;
 }
 
-function observeFadeUps() {
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-}
+function useTypewriter(words, speed = 90, pause = 1700) {
+  const [index, setIndex] = useState(0);
+  const [displayed, setDisplayed] = useState("");
 
-function observeSectionTitles() {
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
-  document.querySelectorAll('.section-title').forEach(el => obs.observe(el));
-}
+  useEffect(() => {
+    if (!words.length) return undefined;
 
-/* ===== TIMELINE FILL ===== */
-function animateTimelineFill() {
-  const fill = document.getElementById('timeline-fill');
-  const timeline = document.getElementById('timeline');
-  if (!fill || !timeline) return;
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const rect = timeline.getBoundingClientRect();
-        const visible = Math.min(1, (window.innerHeight - rect.top) / rect.height);
-        fill.style.height = Math.max(0, visible * 100) + '%';
-      }
-    });
-  }, { threshold: Array.from({ length: 20 }, (_, i) => i / 20) });
-  obs.observe(timeline);
-}
+    const currentWord = words[index % words.length];
+    let timeoutId;
 
-/* ===== STATS COUNTER ===== */
-function animateCounters() {
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.dataset.target);
-        const suffix = el.dataset.suffix || '';
-        let current = 0;
-        const step = target / 40;
-        const t = setInterval(() => {
-          current = Math.min(current + step, target);
-          el.textContent = Math.floor(current) + suffix;
-          if (current >= target) clearInterval(t);
-        }, 30);
-        obs.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('.stat-counter').forEach(el => obs.observe(el));
-}
-
-/* ===== CONTACT FORM (Web3Forms) ===== */
-document.getElementById('contact-form').addEventListener('submit', async function (e) {
-  e.preventDefault();
-  const t = translations[currentLang];
-  const name = document.getElementById('contact-name').value.trim();
-  const email = document.getElementById('contact-email').value.trim();
-  const msg = document.getElementById('contact-msg').value.trim();
-  const errEl = document.getElementById('form-error');
-  const successEl = document.getElementById('form-success');
-  const btn = document.getElementById('form-submit');
-  errEl.classList.add('hidden');
-  successEl.classList.add('hidden');
-
-  if (!name) { errEl.textContent = t.form_err_name; errEl.classList.remove('hidden'); return; }
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    errEl.textContent = t.form_err_email; errEl.classList.remove('hidden'); return;
-  }
-  if (!msg) { errEl.textContent = t.form_err_msg; errEl.classList.remove('hidden'); return; }
-
-  const originalText = btn.innerHTML;
-  btn.innerHTML = '<span>Sending...</span>';
-  btn.disabled = true;
-  btn.style.opacity = '0.6';
-
-  try {
-    const formData = new FormData(this);
-    formData.append('access_key', '3f207861-16bd-4a01-8c1a-48758b633747');
-    formData.append('subject', 'Portfolio Contact: ' + name);
-
-    const res = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: formData
-    });
-    const data = await res.json();
-
-    if (res.ok && data.success) {
-      successEl.textContent = t.form_success;
-      successEl.classList.remove('hidden');
-      this.reset();
+    if (displayed.length < currentWord.length) {
+      timeoutId = setTimeout(() => {
+        setDisplayed(currentWord.slice(0, displayed.length + 1));
+      }, speed);
     } else {
-      errEl.textContent = 'Error: ' + (data.message || 'Gagal mengirim pesan.');
-      errEl.classList.remove('hidden');
+      timeoutId = setTimeout(() => {
+        setDisplayed("");
+        setIndex((prev) => (prev + 1) % words.length);
+      }, pause);
     }
-  } catch (err) {
-    errEl.textContent = 'Terjadi kesalahan jaringan. Coba lagi.';
-    errEl.classList.remove('hidden');
-  } finally {
-    btn.innerHTML = originalText;
-    btn.disabled = false;
-    btn.style.opacity = '1';
-  }
-});
 
-/* ===== PARALLAX HERO ===== */
-window.addEventListener('scroll', () => {
-  const hero = document.getElementById('hero');
-  if (!hero) return;
-  const scrollY = window.scrollY;
-  hero.querySelectorAll('.orb').forEach((orb, i) => {
-    orb.style.transform = `translateY(${scrollY * (0.1 + i * 0.05)}px)`;
+    return () => clearTimeout(timeoutId);
+  }, [displayed, index, pause, speed, words]);
+
+  return displayed;
+}
+
+function useScrollProgress() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      const next = total > 0 ? (window.scrollY / total) * 100 : 0;
+      setProgress(next);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return progress;
+}
+
+function SectionHeading({ label, title, description, align = "left" }) {
+  const alignClass = align === "center" ? "mx-auto text-center" : "";
+
+  return (
+    <div className={`mb-12 max-w-3xl ${alignClass}`}>
+      <div
+        data-reveal
+        className="opacity-0 translate-y-8 [transition:all_.7s_ease] data-[visible=true]:opacity-100"
+      >
+        <p className="mb-3 font-mono text-xs uppercase tracking-[0.45em] text-orange-400">
+          {label}
+        </p>
+        <h2 className="mb-4 text-3xl font-black tracking-[-0.06em] text-text-primary md:text-5xl">
+          {title}
+        </h2>
+        {description ? (
+          <p className="text-sm leading-7 text-text-secondary md:text-base">{description}</p>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
+function Navbar({ t, theme, language, mobileMenuOpen, setMobileMenuOpen, toggleTheme, toggleLanguage }) {
+  const links = [
+    { href: "#about", label: t.nav.about },
+    { href: "#tools", label: t.nav.tools },
+    { href: "#projects", label: t.nav.projects },
+    { href: "#experience", label: t.nav.experience },
+    { href: "#contact", label: t.nav.contact },
+  ];
+
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
+  return (
+    <>
+      <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-[rgba(10,10,10,0.72)] backdrop-blur-2xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-8">
+          <a href="#hero" className="text-xl font-black tracking-[-0.08em] text-text-primary md:text-2xl">
+            <span className="text-orange-400">{t.brand}</span>
+          </a>
+
+          <div className="hidden items-center gap-8 lg:flex">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-text-secondary transition hover:text-text-primary"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          <div className="hidden items-center gap-3 lg:flex">
+            <button
+              type="button"
+              onClick={toggleLanguage}
+              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 font-mono text-xs uppercase tracking-[0.22em] text-text-secondary transition hover:border-orange-400/40 hover:text-text-primary"
+            >
+              {language === "id" ? "EN" : "ID"}
+            </button>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-text-secondary transition hover:border-orange-400/40 hover:text-text-primary"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? "☀" : "☾"}
+            </button>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-text-primary lg:hidden"
+            aria-label="Toggle navigation"
+            aria-expanded={mobileMenuOpen}
+          >
+            <div className="relative h-4 w-5">
+              <span
+                className={`absolute left-0 top-0 h-[2px] w-5 bg-current transition ${mobileMenuOpen ? "translate-y-[7px] rotate-45" : ""}`}
+              />
+              <span
+                className={`absolute left-0 top-[7px] h-[2px] w-5 bg-current transition ${mobileMenuOpen ? "opacity-0" : "opacity-100"}`}
+              />
+              <span
+                className={`absolute left-0 top-[14px] h-[2px] w-5 bg-current transition ${mobileMenuOpen ? "-translate-y-[7px] -rotate-45" : ""}`}
+              />
+            </div>
+          </button>
+        </div>
+      </nav>
+
+      <div
+        className={`fixed inset-0 z-40 bg-[rgba(10,10,10,0.96)] px-6 pt-28 transition duration-300 lg:hidden ${
+          mobileMenuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      >
+        <div className="flex flex-col gap-4">
+          {links.map((link, idx) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="rounded-[1.5rem] border border-white/8 bg-white/4 px-5 py-4 text-lg font-semibold text-text-primary transition hover:border-orange-400/30 hover:bg-white/8"
+              style={{ transitionDelay: `${idx * 60}ms` }}
+            >
+              {link.label}
+            </a>
+          ))}
+          <div className="mt-4 flex gap-3">
+            <button
+              type="button"
+              onClick={toggleLanguage}
+              className="flex-1 rounded-full border border-white/10 bg-white/5 px-4 py-3 font-mono text-xs uppercase tracking-[0.24em] text-text-secondary"
+            >
+              {language === "id" ? "EN" : "ID"}
+            </button>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="flex-1 rounded-full border border-white/10 bg-white/5 px-4 py-3 text-text-secondary"
+            >
+              {theme === "dark" ? "☀ Light" : "☾ Dark"}
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function Hero({ t }) {
+  const revealRef = useReveal();
+  const typedRole = useTypewriter(t.hero.roles, 80, 1500);
+
+  return (
+    <section id="hero" ref={revealRef} className="relative overflow-hidden px-6 pb-20 pt-32 md:px-8 md:pt-36">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-[-8%] top-20 h-72 w-72 rounded-full bg-orange-500/15 blur-3xl" />
+        <div className="absolute right-[-5%] top-40 h-80 w-80 rounded-full bg-orange-300/10 blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-white/5 blur-3xl" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(249,115,22,0.08),transparent_32%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_35%)]" />
+        <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,.18)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.18)_1px,transparent_1px)] [background-size:72px_72px]" />
+      </div>
+
+      <div className="relative mx-auto grid max-w-7xl items-end gap-14 lg:grid-cols-[1.2fr_0.8fr]">
+        <div>
+          <p
+            data-reveal
+            data-delay="0"
+            className="mb-5 opacity-0 [transition:all_.7s_ease]"
+          >
+            <span className="inline-flex rounded-full border border-orange-500/20 bg-orange-500/10 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.35em] text-orange-300">
+              {t.hero.eyebrow}
+            </span>
+          </p>
+
+          <div data-reveal data-delay="120" className="opacity-0 [transition:all_.7s_ease]">
+            <p className="mb-3 text-sm uppercase tracking-[0.32em] text-text-secondary">{t.hero.greeting}</p>
+            <h1 className="max-w-4xl text-5xl font-black leading-[0.95] tracking-[-0.08em] text-text-primary sm:text-6xl md:text-7xl xl:text-[6.2rem]">
+              {t.hero.title}
+            </h1>
+          </div>
+
+          <div
+            data-reveal
+            data-delay="240"
+            className="mt-6 opacity-0 [transition:all_.7s_ease]"
+          >
+            <div className="inline-flex min-h-[3.25rem] items-center rounded-full border border-white/10 bg-white/5 px-5 py-3 text-base text-orange-200 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] md:text-lg">
+              <span className="mr-3 h-2.5 w-2.5 rounded-full bg-orange-400 shadow-[0_0_14px_rgba(249,115,22,0.7)]" />
+              <span className="font-medium">{typedRole}</span>
+              <span className="ml-1 animate-pulse text-orange-400">|</span>
+            </div>
+          </div>
+
+          <p
+            data-reveal
+            data-delay="360"
+            className="mt-6 max-w-2xl text-base leading-8 text-text-secondary opacity-0 [transition:all_.7s_ease] md:text-lg"
+          >
+            {t.hero.description}
+          </p>
+
+          <div
+            data-reveal
+            data-delay="480"
+            className="mt-8 flex flex-col gap-4 opacity-0 [transition:all_.7s_ease] sm:flex-row"
+          >
+            <a
+              href="#projects"
+              className="inline-flex items-center justify-center rounded-full bg-orange-500 px-7 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-black transition hover:scale-[1.02] hover:bg-orange-400"
+            >
+              {t.hero.primaryCta}
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/5 px-7 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-text-primary transition hover:border-orange-400/30 hover:bg-white/8"
+            >
+              {t.hero.secondaryCta}
+            </a>
+          </div>
+
+          <div
+            data-reveal
+            data-delay="600"
+            className="mt-10 flex flex-col gap-5 opacity-0 [transition:all_.7s_ease] md:flex-row md:items-center md:justify-between"
+          >
+            <div>
+              <p className="mb-3 text-xs uppercase tracking-[0.32em] text-text-muted">{t.hero.socialLabel}</p>
+              <div className="flex gap-3">
+                {socialLinks.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                    className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-text-secondary transition hover:-translate-y-1 hover:border-orange-400/40 hover:text-orange-300"
+                    aria-label={item.label}
+                  >
+                    {item.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+            <p className="max-w-sm text-sm leading-7 text-text-muted">{t.hero.availability}</p>
+          </div>
+        </div>
+
+        <div data-reveal data-delay="300" className="opacity-0 [transition:all_.8s_ease]">
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-6 shadow-[0_30px_80px_rgba(0,0,0,0.35)] backdrop-blur-xl">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(249,115,22,0.18),transparent_40%)]" />
+            <div className="relative space-y-5">
+              <div className="flex items-center justify-between border-b border-white/8 pb-4">
+                <div>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-orange-300">System Snapshot</p>
+                  <h3 className="mt-2 text-2xl font-bold tracking-[-0.05em] text-text-primary">Portfolio Core</h3>
+                </div>
+                <div className="rounded-full border border-orange-400/20 bg-orange-500/10 px-3 py-1 text-xs uppercase tracking-[0.24em] text-orange-200">
+                  Live
+                </div>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+                {t.hero.stats.map((stat, index) => (
+                  <div
+                    key={stat.label}
+                    className={`rounded-[1.4rem] border border-white/8 bg-black/20 p-4 ${index === 1 ? "sm:translate-y-5 xl:translate-y-5" : ""}`}
+                  >
+                    <p className="text-3xl font-black tracking-[-0.08em] text-text-primary">{stat.value}</p>
+                    <p className="mt-2 text-sm leading-6 text-text-secondary">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="rounded-[1.6rem] border border-white/8 bg-black/25 p-5">
+                <div className="mb-4 flex items-center justify-between">
+                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-text-secondary">Core Signals</p>
+                  <span className="h-2 w-2 rounded-full bg-orange-400 shadow-[0_0_12px_rgba(249,115,22,0.85)]" />
+                </div>
+                <div className="space-y-4">
+                  {[
+                    { label: "UI rhythm", value: 92 },
+                    { label: "Motion", value: 86 },
+                    { label: "Structure", value: 90 },
+                  ].map((item, idx) => (
+                    <div key={item.label}>
+                      <div className="mb-2 flex items-center justify-between text-xs uppercase tracking-[0.24em] text-text-muted">
+                        <span>{item.label}</span>
+                        <span>{item.value}%</span>
+                      </div>
+                      <div className="h-2 overflow-hidden rounded-full bg-white/8">
+                        <div
+                          className="h-full rounded-full bg-[linear-gradient(90deg,#F97316,#FDBA74)] animate-[scaleIn_.9s_ease_forwards] origin-left"
+                          style={{ width: `${item.value}%`, animationDelay: `${idx * 120}ms` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function About({ t }) {
+  const revealRef = useReveal();
+
+  return (
+    <section id="about" ref={revealRef} className="px-6 py-20 md:px-8">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeading label={t.about.label} title={t.about.title} description={t.about.lead} />
+
+        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+          <div data-reveal data-delay="0" className="opacity-0 [transition:all_.7s_ease]">
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-bg-secondary p-4 shadow-[0_25px_70px_rgba(0,0,0,0.28)]">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(249,115,22,0.16),transparent_44%)]" />
+              <div className="relative overflow-hidden rounded-[1.6rem] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-6">
+                <div className="mb-6 flex items-center justify-between">
+                  <span className="rounded-full border border-orange-400/20 bg-orange-500/10 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-orange-300">
+                    {t.about.cardTitle}
+                  </span>
+                  <span className="text-xs uppercase tracking-[0.24em] text-text-muted">01</span>
+                </div>
+                <div className="mx-auto flex h-72 w-full max-w-[20rem] items-center justify-center rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))]">
+                  <div className="relative flex h-56 w-56 items-center justify-center rounded-full border border-orange-400/20 bg-[radial-gradient(circle,rgba(249,115,22,0.2),rgba(255,255,255,0.02))] text-center shadow-[0_0_40px_rgba(249,115,22,0.12)]">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.35em] text-orange-200">Ananta</p>
+                      <p className="mt-3 text-5xl font-black tracking-[-0.08em] text-text-primary">AN</p>
+                      <p className="mt-3 text-sm text-text-secondary">AI • Web • Motion</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-6 grid gap-3 text-sm text-text-secondary">
+                  <div className="flex items-center justify-between rounded-2xl border border-white/8 bg-black/20 px-4 py-3">
+                    <span>{t.about.location}</span>
+                    <span className="text-text-primary">IDN</span>
+                  </div>
+                  <div className="flex items-center justify-between rounded-2xl border border-white/8 bg-black/20 px-4 py-3">
+                    <span>{t.about.study}</span>
+                    <span className="text-text-primary">UNESA</span>
+                  </div>
+                  <div className="flex items-center justify-between rounded-2xl border border-white/8 bg-black/20 px-4 py-3">
+                    <span>{t.about.focus}</span>
+                    <span className="text-text-primary">Focus</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid gap-6">
+            <div data-reveal data-delay="120" className="rounded-[2rem] border border-white/10 bg-bg-secondary p-7 opacity-0 [transition:all_.7s_ease]">
+              <p className="text-base leading-8 text-text-secondary">{t.about.body}</p>
+              <p className="mt-5 text-sm uppercase tracking-[0.24em] text-orange-300">{t.about.years}</p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              <div data-reveal data-delay="240" className="rounded-[2rem] border border-white/10 bg-bg-secondary p-7 opacity-0 [transition:all_.7s_ease]">
+                <p className="mb-5 text-xs uppercase tracking-[0.3em] text-text-muted">Bio notes</p>
+                <div className="space-y-4">
+                  {t.about.bioPoints.map((point, idx) => (
+                    <div key={point} className="flex gap-3">
+                      <span className="mt-2 h-2.5 w-2.5 rounded-full bg-orange-400 shadow-[0_0_10px_rgba(249,115,22,0.75)]" />
+                      <p className="text-sm leading-7 text-text-secondary">{point}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div data-reveal data-delay="360" className="rounded-[2rem] border border-white/10 bg-bg-secondary p-7 opacity-0 [transition:all_.7s_ease]">
+                <p className="mb-5 text-xs uppercase tracking-[0.3em] text-text-muted">{t.about.contactLabel}</p>
+                <div className="space-y-3">
+                  <a href={contactLinks.email} className="flex items-center justify-between rounded-2xl border border-white/8 bg-black/20 px-4 py-4 text-sm text-text-secondary transition hover:border-orange-400/30 hover:text-text-primary">
+                    <span>{t.about.email}</span>
+                    <span className="font-mono text-xs uppercase tracking-[0.22em]">Mail</span>
+                  </a>
+                  <a href={contactLinks.instagram} target="_blank" rel="noreferrer" className="flex items-center justify-between rounded-2xl border border-white/8 bg-black/20 px-4 py-4 text-sm text-text-secondary transition hover:border-orange-400/30 hover:text-text-primary">
+                    <span>{t.about.instagram}</span>
+                    <span className="font-mono text-xs uppercase tracking-[0.22em]">Social</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-3">
+              {t.about.stats.map((stat, idx) => (
+                <div
+                  key={stat.label}
+                  data-reveal
+                  data-delay={String(480 + idx * 120)}
+                  className="rounded-[1.8rem] border border-white/10 bg-bg-secondary p-6 opacity-0 [transition:all_.7s_ease]"
+                >
+                  <p className="text-4xl font-black tracking-[-0.08em] text-text-primary">{stat.value}</p>
+                  <p className="mt-3 text-sm leading-6 text-text-secondary">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Tools({ t }) {
+  const revealRef = useReveal();
+  const sectionRef = useRef(null);
+  const [activeBars, setActiveBars] = useState(false);
+
+  useEffect(() => {
+    if (!sectionRef.current) return undefined;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveBars(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section id="tools" ref={revealRef} className="px-6 py-20 md:px-8">
+      <div ref={sectionRef} className="mx-auto max-w-7xl">
+        <SectionHeading
+          label={t.tools.label}
+          title={t.tools.title}
+          description={t.tools.description}
+          align="center"
+        />
+
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {toolsData.map((tool, idx) => (
+            <div
+              key={tool.name}
+              data-reveal
+              data-delay={String(idx * 90)}
+              className="group rounded-[2rem] border border-white/10 bg-bg-secondary p-6 opacity-0 [transition:all_.7s_ease] hover:-translate-y-1 hover:border-orange-400/25"
+            >
+              <div className="mb-6 flex items-start justify-between">
+                <div className={`flex h-16 w-16 items-center justify-center rounded-[1.4rem] bg-gradient-to-br ${tool.accent} text-3xl text-black shadow-[0_16px_40px_rgba(249,115,22,0.15)]`}>
+                  <i className={tool.iconClass} aria-hidden="true" />
+                </div>
+                <span className="rounded-full border border-white/8 bg-black/20 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.24em] text-text-muted">
+                  {tool.level}%
+                </span>
+              </div>
+              <h3 className="text-xl font-bold tracking-[-0.04em] text-text-primary">{tool.name}</h3>
+              <p className="mt-2 text-xs uppercase tracking-[0.24em] text-text-muted">{t.tools.proficiency}</p>
+              <div className="mt-5 h-2 overflow-hidden rounded-full bg-white/8">
+                <div
+                  className="h-full rounded-full bg-[linear-gradient(90deg,#F97316,#FDBA74)] transition-all duration-1000 ease-out"
+                  style={{ width: activeBars ? `${tool.level}%` : "0%", transitionDelay: `${idx * 90}ms` }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Projects({ t }) {
+  const revealRef = useReveal();
+
+  return (
+    <section id="projects" ref={revealRef} className="px-6 py-20 md:px-8">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeading
+          label={t.projects.label}
+          title={t.projects.title}
+          description={t.projects.description}
+        />
+
+        <div className="grid gap-6 xl:grid-cols-2">
+          {t.projects.items.map((project, idx) => (
+            <article
+              key={project.title}
+              data-reveal
+              data-delay={String(idx * 140)}
+              className="group relative overflow-hidden rounded-[2.2rem] border border-white/10 bg-bg-secondary p-7 opacity-0 [transition:all_.8s_ease]"
+            >
+              <div className={`absolute inset-0 ${project.accent === "forge" ? "bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.16),transparent_40%)]" : "bg-[radial-gradient(circle_at_bottom_right,rgba(253,186,116,0.12),transparent_40%)]"}`} />
+              <div className="relative">
+                <div className="mb-8 flex items-start justify-between gap-4">
+                  <div>
+                    <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.34em] text-orange-300">
+                      {t.projects.featured}
+                    </p>
+                    <h3 className="text-3xl font-black tracking-[-0.06em] text-text-primary">{project.title}</h3>
+                  </div>
+                  <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.24em] text-text-muted">
+                    0{idx + 1}
+                  </div>
+                </div>
+
+                <div className="mb-8 rounded-[1.8rem] border border-white/8 bg-black/25 p-6">
+                  <p className="text-base leading-8 text-text-secondary">{project.summary}</p>
+                  <p className="mt-4 text-sm leading-7 text-text-muted">{project.details}</p>
+                </div>
+
+                <div className="mb-8 flex flex-wrap gap-3">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.22em] text-text-secondary"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <a
+                  href={project.demo}
+                  target={project.demo.startsWith("http") ? "_blank" : undefined}
+                  rel={project.demo.startsWith("http") ? "noreferrer" : undefined}
+                  className="inline-flex items-center gap-3 rounded-full bg-orange-500 px-6 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-black transition hover:scale-[1.02] hover:bg-orange-400"
+                >
+                  <span>{t.projects.demo}</span>
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M7 17 17 7" />
+                    <path d="M8 7h9v9" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Experience({ t }) {
+  const revealRef = useReveal();
+
+  return (
+    <section id="experience" ref={revealRef} className="px-6 py-20 md:px-8">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeading
+          label={t.experience.label}
+          title={t.experience.title}
+          description={t.experience.description}
+        />
+
+        <div className="relative mx-auto max-w-5xl">
+          <div className="absolute left-4 top-0 h-full w-px bg-gradient-to-b from-orange-400/60 via-white/10 to-transparent md:left-1/2" />
+          <div className="space-y-8">
+            {t.experience.items.map((item, idx) => (
+              <div
+                key={`${item.year}-${item.title}`}
+                data-reveal
+                data-delay={String(idx * 140)}
+                className={`relative grid gap-4 opacity-0 [transition:all_.8s_ease] md:grid-cols-2 ${idx % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}
+              >
+                <div className={`md:px-10 ${idx % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
+                  <div className="rounded-[2rem] border border-white/10 bg-bg-secondary p-6 shadow-[0_20px_60px_rgba(0,0,0,0.2)]">
+                    <p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-orange-300">{item.year}</p>
+                    <h3 className="text-2xl font-bold tracking-[-0.05em] text-text-primary">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-text-secondary">{item.description}</p>
+                  </div>
+                </div>
+                <div className="hidden md:block" />
+                <span className="absolute left-4 top-8 z-10 h-3.5 w-3.5 -translate-x-1/2 rounded-full border border-orange-200/40 bg-orange-400 shadow-[0_0_16px_rgba(249,115,22,0.8)] md:left-1/2" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Contact({ t, language }) {
+  const revealRef = useReveal();
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState({ type: "idle", message: "" });
+  const [sending, setSending] = useState(false);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!form.name.trim()) {
+      setStatus({ type: "error", message: t.contact.form.errorName });
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+      setStatus({ type: "error", message: t.contact.form.errorEmail });
+      return;
+    }
+
+    if (!form.message.trim()) {
+      setStatus({ type: "error", message: t.contact.form.errorMessage });
+      return;
+    }
+
+    setSending(true);
+    setStatus({ type: "idle", message: "" });
+
+    try {
+      const formData = new FormData();
+      formData.append("name", form.name.trim());
+      formData.append("email", form.email.trim());
+      formData.append("message", form.message.trim());
+      formData.append("access_key", "3f207861-16bd-4a01-8c1a-48758b633747");
+      formData.append("subject", `Portfolio Contact: ${form.name.trim()}`);
+      formData.append("from_name", "Portfolio Contact Form");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || t.contact.form.errorSubmit);
+      }
+
+      setForm({ name: "", email: "", message: "" });
+      setStatus({ type: "success", message: t.contact.form.success });
+    } catch (error) {
+      setStatus({ type: "error", message: error.message || t.contact.form.errorSubmit });
+    } finally {
+      setSending(false);
+    }
+  };
+
+  const cards = [
+    {
+      title: t.contact.cards.email,
+      value: "anantanaufalwork@gmail.com",
+      href: contactLinks.email,
+      icon: (
+        <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <path d="M4 6h16v12H4z" />
+          <path d="m4 7 8 6 8-6" />
+        </svg>
+      ),
+    },
+    {
+      title: t.contact.cards.instagram,
+      value: "@zuu.sudo",
+      href: contactLinks.instagram,
+      icon: (
+        <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.4" cy="6.6" r="0.8" fill="currentColor" stroke="none" />
+        </svg>
+      ),
+    },
+    {
+      title: t.contact.cards.github,
+      value: "github.com/Zuu-sudo",
+      href: contactLinks.github,
+      icon: (
+        <svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor">
+          <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
+        </svg>
+      ),
+    },
+  ];
+
+  return (
+    <section id="contact" ref={revealRef} className="px-6 py-20 md:px-8">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeading
+          label={t.contact.label}
+          title={t.contact.title}
+          description={t.contact.description}
+        />
+
+        <div className="grid gap-8 xl:grid-cols-[0.9fr_1.1fr]">
+          <div className="grid gap-4">
+            {cards.map((card, idx) => (
+              <a
+                key={card.title}
+                href={card.href}
+                target={card.href.startsWith("http") ? "_blank" : undefined}
+                rel={card.href.startsWith("http") ? "noreferrer" : undefined}
+                data-reveal
+                data-delay={String(idx * 100)}
+                className="group rounded-[2rem] border border-white/10 bg-bg-secondary p-6 opacity-0 [transition:all_.7s_ease] hover:border-orange-400/25"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-[1.2rem] border border-white/8 bg-black/20 text-orange-300">
+                    {card.icon}
+                  </div>
+                  <div>
+                    <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-text-muted">{card.title}</p>
+                    <p className="mt-2 text-sm text-text-primary">{card.value}</p>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div data-reveal data-delay="180" className="rounded-[2.2rem] border border-white/10 bg-bg-secondary p-7 opacity-0 [transition:all_.8s_ease]">
+            <div className="mb-6 flex items-center justify-between">
+              <h3 className="text-2xl font-bold tracking-[-0.05em] text-text-primary">{t.contact.form.title}</h3>
+              <span className="rounded-full border border-orange-400/20 bg-orange-500/10 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.24em] text-orange-300">
+                {language.toUpperCase()}
+              </span>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label className="mb-2 block text-xs uppercase tracking-[0.24em] text-text-muted">
+                  {t.contact.form.name}
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
+                  placeholder={t.contact.form.namePlaceholder}
+                  className="w-full rounded-[1.3rem] border border-white/10 bg-black/20 px-5 py-4 text-text-primary outline-none transition placeholder:text-text-muted focus:border-orange-400/40"
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-xs uppercase tracking-[0.24em] text-text-muted">
+                  {t.contact.form.email}
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder={t.contact.form.emailPlaceholder}
+                  className="w-full rounded-[1.3rem] border border-white/10 bg-black/20 px-5 py-4 text-text-primary outline-none transition placeholder:text-text-muted focus:border-orange-400/40"
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-xs uppercase tracking-[0.24em] text-text-muted">
+                  {t.contact.form.message}
+                </label>
+                <textarea
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  placeholder={t.contact.form.messagePlaceholder}
+                  rows="6"
+                  className="w-full rounded-[1.3rem] border border-white/10 bg-black/20 px-5 py-4 text-text-primary outline-none transition placeholder:text-text-muted focus:border-orange-400/40"
+                />
+              </div>
+
+              {status.message ? (
+                <div
+                  className={`rounded-2xl border px-4 py-3 text-sm ${
+                    status.type === "success"
+                      ? "border-emerald-400/25 bg-emerald-500/10 text-emerald-200"
+                      : "border-red-400/25 bg-red-500/10 text-red-200"
+                  }`}
+                >
+                  {status.message}
+                </div>
+              ) : null}
+
+              <button
+                type="submit"
+                disabled={sending}
+                className="inline-flex items-center justify-center rounded-full bg-orange-500 px-7 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-black transition hover:scale-[1.02] hover:bg-orange-400 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {sending ? t.contact.form.sending : t.contact.form.submit}
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer({ t }) {
+  return (
+    <footer className="border-t border-white/8 px-6 py-8 md:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <p className="text-sm text-text-muted">{t.footer.copyright}</p>
+        <a
+          href="#hero"
+          className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.22em] text-text-secondary transition hover:text-orange-300"
+        >
+          <span>{t.footer.backToTop}</span>
+          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="m12 19 0-14" />
+            <path d="m5 12 7-7 7 7" />
+          </svg>
+        </a>
+      </div>
+    </footer>
+  );
+}
+
+function App() {
+  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
+  const [language, setLanguage] = useState(() => {
+    const saved = localStorage.getItem("lang");
+    if (saved) return saved;
+    return navigator.language.toLowerCase().startsWith("id") ? "id" : "en";
   });
-}, { passive: true });
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const progress = useScrollProgress();
+  const t = translations[language];
 
-/* ===== INIT ===== */
-function init() {
-  setLanguage(currentLang);
-  renderProjects();
-  renderTimeline();
-  observeCards('.skill-card');
-  observeFadeUps();
-  observeSectionTitles();
-  animateTimelineFill();
-  animateCounters();
+  useEffect(() => {
+    document.documentElement.lang = language;
+    localStorage.setItem("lang", language);
+  }, [language]);
 
-  // Typewriter on hero name
-  const heroName = document.getElementById('hero-name');
-  if (heroName) {
-    setTimeout(() => typewriter(heroName, 'Ananta Naufal', 80), 600);
-  }
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    document.documentElement.setAttribute("data-theme", theme);
+    document.body.classList.remove("dark", "light");
+    document.body.classList.add(theme);
+  }, [theme]);
+
+  useEffect(() => {
+    const previousTitle = document.title;
+    document.title = language === "id" ? "Ananta Naufal — Portfolio" : "Ananta Naufal — Portfolio";
+    return () => {
+      document.title = previousTitle;
+    };
+  }, [language]);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [language]);
+
+  const toggleTheme = () => setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  const toggleLanguage = () => setLanguage((prev) => (prev === "id" ? "en" : "id"));
+
+  return (
+    <div className="min-h-screen bg-bg-primary text-text-primary">
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+      />
+
+      <div
+        className="fixed left-0 top-0 z-[60] h-[3px] bg-[linear-gradient(90deg,#F97316,#FDBA74)] transition-[width] duration-150"
+        style={{ width: `${progress}%` }}
+      />
+
+      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.05] [background-image:radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.8)_1px,transparent_0)] [background-size:28px_28px]" />
+
+      <Navbar
+        t={t}
+        theme={theme}
+        language={language}
+        mobileMenuOpen={mobileMenuOpen}
+        setMobileMenuOpen={setMobileMenuOpen}
+        toggleTheme={toggleTheme}
+        toggleLanguage={toggleLanguage}
+      />
+
+      <main className="relative z-10">
+        <Hero t={t} />
+        <About t={t} />
+        <Tools t={t} />
+        <Projects t={t} />
+        <Experience t={t} />
+        <Contact t={t} language={language} />
+      </main>
+
+      <Footer t={t} />
+    </div>
+  );
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
-  init();
-}
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);

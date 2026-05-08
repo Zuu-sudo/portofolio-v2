@@ -10,7 +10,7 @@
   --text-primary: #FAFAFA;
   --text-secondary: #A1A1AA;
   --text-muted: #71717A;
-  --border: rgba(249, 115, 22, 0.15);
+  --border: rgba(0, 0, 0, 0.1);
   --glow: rgba(249, 115, 22, 0.25);
   --radius: 12px;
   --radius-lg: 20px;
@@ -238,63 +238,10 @@ body {
   padding-top: 5rem;
 }
 
-/* Gradient mesh background */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(124,110,248,0.15) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 20%, rgba(79,195,247,0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 60% 80%, rgba(124,110,248,0.08) 0%, transparent 40%);
-  animation: meshMove 12s ease-in-out infinite alternate;
-}
-@keyframes meshMove {
-  0% { opacity: 0.7; transform: scale(1) rotate(0deg); }
-  100% { opacity: 1; transform: scale(1.05) rotate(2deg); }
-}
-
-/* Floating orbs */
-.orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.4;
-  pointer-events: none;
-  animation: floatOrb linear infinite;
-}
-.orb-1 {
-  width: 300px; height: 300px;
-  background: var(--accent-primary);
-  top: 10%; left: 5%;
-  animation-duration: 20s;
-}
-.orb-2 {
-  width: 200px; height: 200px;
-  background: var(--accent-secondary);
-  top: 60%; right: 10%;
-  animation-duration: 15s;
-  animation-delay: -5s;
-}
-.orb-3 {
-  width: 250px; height: 250px;
-  background: rgba(124,110,248,0.5);
-  bottom: 10%; left: 40%;
-  animation-duration: 25s;
-  animation-delay: -10s;
-}
-@keyframes floatOrb {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(30px, -40px) scale(1.05); }
-  50% { transform: translate(-20px, 30px) scale(0.95); }
-  75% { transform: translate(40px, 20px) scale(1.02); }
-}
-
-/* Noise texture overlay */
-.noise-overlay {
-  position: absolute;
-  inset: 0;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background: radial-gradient(circle at 30% 20%, rgba(249, 115, 22, 0.06), transparent 50%);
   pointer-events: none;
 }
 
@@ -339,22 +286,6 @@ body {
   font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   color: var(--text-muted);
   margin-bottom: 1rem;
-  height: 2rem;
-  overflow: hidden;
-  opacity: 0;
-  animation: fadeSlideUp 0.6s ease forwards 0.6s;
-}
-
-.role-text {
-  display: block;
-  animation: roleSlide 9s infinite;
-  font-weight: 500;
-}
-@keyframes roleSlide {
-  0%, 28% { transform: translateY(0); opacity: 1; }
-  33%, 61% { transform: translateY(-100%); opacity: 1; }
-  66%, 94% { transform: translateY(-200%); opacity: 1; }
-  99%, 100% { transform: translateY(-300%); }
 }
 
 .hero-desc {
@@ -523,14 +454,7 @@ body {
   inset: -4px;
   border-radius: 1.5rem;
   background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-primary));
-  background-size: 300% 300%;
-  animation: borderRotate 4s linear infinite;
   z-index: 0;
-}
-@keyframes borderRotate {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 .about-photo {
   position: relative;
@@ -557,18 +481,16 @@ body {
   border: 1px solid var(--border);
   border-radius: 1rem;
   padding: 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   opacity: 0;
-  transform: translateY(20px) scale(0.97);
+  transform: translateY(20px);
 }
 .skill-card.visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
-  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s ease;
 }
 .skill-card:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 20px 40px var(--glow);
   border-color: var(--accent-primary);
 }
 
@@ -576,9 +498,7 @@ body {
   font-size: 2rem;
   margin-bottom: 0.75rem;
   display: block;
-  transition: transform 0.3s ease;
 }
-.skill-card:hover .skill-icon { transform: scale(1.1) rotate(5deg); }
 
 /* SVG-based tool icons */
 .tool-svg-icon {
@@ -791,4 +711,81 @@ body.lang-transition * { transition: opacity 0.15s ease !important; opacity: 0.3
 @media (min-width: 768px) {
   #mobile-menu { display: none; }
   .desktop-nav { display: flex; }
+}
+
+/* ===== REVEAL ANIMATION ===== */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== SKILL BAR ANIMATION ===== */
+.skill-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: 2px;
+  width: 0%;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.skill-bar.is-visible {
+  width: var(--skill-level);
+}
+
+/* ===== LIGHT MODE SPECIFIC OVERRIDES ===== */
+[data-theme="light"] #navbar.scrolled {
+  background: rgba(248, 247, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .bg-bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+[data-theme="light"] .bg-bg-tertiary {
+  background-color: var(--bg-tertiary);
+}
+
+[data-theme="light"] .bg-bg-elevated {
+  background-color: var(--bg-elevated);
+}
+
+[data-theme="light"] .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .border-white\/5 {
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .text-text-muted {
+  color: #71717A;
+}
+
+[data-theme="light"] .social-icon {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .skill-card,
+[data-theme="light"] .project-card,
+[data-theme="light"] .timeline-card {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .tech-tag {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .btn-outline {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .contact-input {
+  border-color: rgba(0, 0, 0, 0.1);
 }
